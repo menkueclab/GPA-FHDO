@@ -1,0 +1,287 @@
+* OPA549
+*****************************************************************************
+* (C) Copyright 2011 Texas Instruments Incorporated. All rights reserved.                                            
+*****************************************************************************
+** This model is designed as an aid for customers of Texas Instruments.
+** TI and its licensors and suppliers make no warranties, either expressed
+** or implied, with respect to this model, including the warranties of 
+** merchantability or fitness for a particular purpose.  The model is
+** provided solely on an "as is" basis.  The entire risk as to its quality
+** and performance is with the customer.
+*****************************************************************************
+*
+* This model is subject to change without notice. Texas Instruments
+* Incorporated is not responsible for updating this model.
+*
+*****************************************************************************
+*
+** Released by: Analog eLab Design Center, Texas Instruments Inc.
+* Part: OPA549
+* Date: 22JUL2011
+* Model Type: ALL IN ONE
+* Simulator: TINA
+* Simulator Version: 9.1.30.94 SF-TI
+* EVM Order Number: N/A
+* EVM Users Guide: N/A
+* Datasheet: SBOS093E – MARCH 1999 – REVISED OCTOBER 2005
+*
+* Model Version: 1.0
+*
+*****************************************************************************
+* 
+* Updates:
+*
+* Version 1.0 : 
+* Release to Web
+*
+******************************************************************************
+* CONNECTIONS:  VOUT
+
+*               |   VOUT
+
+*               |   |   INVERTING INPUT 
+
+*               |   |   | NON-INVERTING INPUT
+
+*               |   |   | | NEGATIVE POWER SUPPLY 
+
+*               |   |   | | |   REF VOLTAGE FOR CONTROL PINS (ES AND ILIM)
+
+*               |   |   | | |   |   NEGATIVE POWER SUPPLY
+
+*               |   |   | | |   |   |   CURRENT LIMIT ADJUST
+
+*               |   |   | | |   |   |   |   ENABLE/STATUS
+
+*               |   |   | | |   |   |   |   |  POSITIVE POWER SUPPLY
+
+*               |   |   | | |   |   |   |   |  |  POSITIVE POWER SUPPLY
+
+*               |   |   | | |   |   |   |   |  |  |
+
+.SUBCKT OPA549 OUT OUT2 - + V- REF V-2 LIM ES V+ V+2
+
+Q2 N18 N16 N14 PSUB
+
+R3 N13 N14 8.4K
+
+Q1 N13 N12 N61 LAT5
+
+R15 N40 VMINUS .168
+
+Q9 VPLUS N34 N35 NMIN 2382
+
+Q4 N25 N26 VMINUS NMAX 2
+
+HCCVSP N47 N36 V475 -2650
+
+HCCVSN N42 VMINUS V475 -2650
+
+GNEGDRV VPLUS N37 N31 N36 -.00025
+
+R4 N13 N15 8.4K
+
+GAINBLK N26 VMINUS N18 N19 .00175
+
+R8 N19 VMINUS 1K
+
+R6 N17 + 1K
+
+R5 - N16 1K
+
+R7 N18 VMINUS 1K
+
+C2 N37 N36 11PF
+
+C1 N26 N25 31PF
+
+Q3 N19 N17 N15 PSUB
+
+Q7 VPLUS N37 N38 NMIN 128
+
+R17 N38 VMINUS 180
+
+D6 N32 N31 DIODE 18
+
+D3 N27 N26 DIODE 1
+
+D5 N27 N37 DIODE 10
+
+D2 N23 N22 DIODE 6
+
+D1 N60 N12 DIODE 6
+
+VCLMP N27 VMINUS DC 1.1
+
+VDUM N20 VMINUS DC 0
+
+R9 N21 N20 35K
+
+C3 N21 N1N677 15PF
+
+FICOMP N37 VMINUS VDUM 1
+
+D4 N29 N28 DIODE 1
+
+R13 N28 VMINUS 750
+
+Q6 N31 N29 N30 NMIN 2
+
+R14 N30 VMINUS 300
+
+R18 N39 N38 18
+
+DCLAMP N37 N36 DIODE 1
+
+R12 N1N677 N33 80
+
+R31 N32 N34 1.9
+
+V475 N43 Ref DC 4.75
+
+GCLPGAIN VPLUS N51 N35 N47 .00015
+
+Q11 N25 N51 N36 NMIN 1
+
+C5 N51 N25 20PF
+
+D7 N48 N51 DIODE 1
+
+VDP N48 N36 DC .65
+
+R21 Lim N43 7500
+
+D8 N49 N41 DIODE 1
+
+Q12 N37 N41 VMINUS NMIN 1
+
+GCLNGAIN VPLUS N41 N40 N42 .00015
+
+V1I459 N49 VMINUS DC .65
+
+C6 N41 N37 20PF
+
+DZ1 N31 N1N384 ZEN
+
+VCM VPLUS N59 DC 1.4
+
+D9 N45 N46 DIODE 1
+
+D10 N45 ES DIODE 1
+
+IBES VPLUS N45 60UA
+
+R22 ES Ref 250K
+
+VBES N46 Ref DC 3.6
+
+R16 N32 N36 500
+
+R0 N35 N36 .168
+
+VTHES N44 Ref DC 2.0
+
+DP2 VMINUS - DIODE 1
+
+DP1 - VPLUS DIODE 1
+
+DP4 VMINUS + DIODE 1
+
+DP3 + VPLUS DIODE 1
+
+DP5 Ref VPLUS DIODE 10
+
+DP6 VMINUS Ref DIODE 50
+
+DP8 VMINUS Lim DIODE 1
+
+DP7 Lim VPLUS DIODE 1
+
+DP9 ES VPLUS DIODE 1
+
+DP10 VMINUS ES DIODE 1
+
+SVCS1    N36 OUTPUT N45 N44  VSM
+
+SVCS2    N32 N31 N45 N44  VSM2
+
+CS2 VMINUS - 3PF
+
+CS1 VMINUS + 3PF
+
+CS3 - + 2.5PF
+
+Q5 N25 N22 N24 LAT5
+
+Q20 VPLUS N1N667 N1N677 NMIN 8
+
+R11 N1N677 N32 2K
+
+R1 VPLUS N24 300
+
+R30 N25 N1N667 2K
+
+D20 N36 N1N384 DIODE 18
+
+RDUMMY1 V+ VPLUS 1E-4
+
+RDUMMY2 V+2 VPLUS 1E-4
+
+RDUMMY3 VMINUS V- 1E-4
+
+RDUMMY5 Out OUTPUT 1E-4
+
+RDUMMY6 Out2 OUTPUT 1E-4
+
+RDUMMY4 VMINUS V-2 1E-4
+
+DP11 OUTPUT VPLUS DIODE 1
+
+DP12 VMINUS OUTPUT DIODE 1
+
+R10 VPLUS N23 300
+
+I2 N22 N29 250UA
+
+Q10 N36 N39 N40 NMIN 2382
+
+Q8 VPLUS N33 N32 NMIN 80
+
+I1 N12 VMINUS 100UA
+
+R2 N59 N61 1K
+
+R19 N59 N60 1K
+
+*
+ 
+* DEVICE MODELS
+
+.MODEL ZEN D(IS=6E-16 CJO=1E-15 RS=1 BV=.2)
+
+.MODEL LAT5 PNP(IS=4E-15 BF=80 VAF=80 CJE=1E-13 CJC=6E-13  TF=3.5E-8
+
++ RC=1.2E3 )
+
+.MODEL PSUB PNP(IS=6E-16 BF=360 VAF=140 CJE=5E-13 CJC=2.5E-13 TF=2.5E-10  
+
++ RC=1.2E3)
+
+.MODEL NMAX NPN(IS=6E-16 BF=1200 VAF=140 CJE=5E-13 CJC=2.5E-13 TF=2.5E-10  
+
++ RC=0.6E3)
+
+.MODEL NMIN NPN(IS=6E-16 BF=300 VAF=140 CJE=5E-13 CJC=2.5E-13 TF=2.5E-10  
+
++ RC=0.6E3)
+
+.MODEL DIODE D(IS=6E-16 CJO=1E-15 RS=1)
+
+.MODEL VSM2 VSWITCH(RON=1500 ROFF=1E7 VON=1.9 VOFF=2.1)
+
+.MODEL VSM VSWITCH(RON=.1 ROFF=5E5 VON=2.1 VOFF=1.9)
+
+*
+
+.ENDS OPA549
+*

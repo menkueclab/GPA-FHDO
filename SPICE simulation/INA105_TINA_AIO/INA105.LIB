@@ -1,0 +1,68 @@
+* INA105
+*****************************************************************************
+* (C) Copyright 2011 Texas Instruments Incorporated. All rights reserved.                                            
+*****************************************************************************
+** This model is designed as an aid for customers of Texas Instruments.
+** TI and its licensors and suppliers make no warranties, either expressed
+** or implied, with respect to this model, including the warranties of 
+** merchantability or fitness for a particular purpose.  The model is
+** provided solely on an "as is" basis.  The entire risk as to its quality
+** and performance is with the customer.
+*****************************************************************************
+*
+* This model is subject to change without notice. Texas Instruments
+* Incorporated is not responsible for updating this model.
+*
+*****************************************************************************
+*
+** Released by: Analog eLab Design Center, Texas Instruments Inc.
+* Part: INA105
+* Date: 22JUL2011
+* Model Type: ALL IN ONE
+* Simulator: TINA
+* Simulator Version: 9.1.30.94 SF-TI
+* EVM Order Number: N/A
+* EVM Users Guide: N/A
+* Datasheet: SBOS145
+*
+* Model Version: 1.0
+*
+*****************************************************************************
+*
+* Updates:
+*
+* Version 1.0 : 
+* Release to Web
+*
+*****************************************************************************
+* CONNECTIONS:          NON-INVERTING INPUT
+*                       |  INVERTING INPUT
+*                       |  |  POSITIVE POWER SUPPLY
+*                       |  |  |  NEGATIVE POWER SUPPLY
+*                       |  |  |  |  OUTPUT
+*                       |  |  |  |  |  REFERENCE
+*                       |  |  |  |  |  |  SENSE
+*                       |  |  |  |  |  |  |
+.SUBCKT INA105         1  2  3  4  5  8  9
+*
+***** A3_105E SUB-CIRCUIT
+* CONNECTIONS:          NON-INVERTING INPUT
+*                       |  INVERTING INPUT
+*                       |  | POSITIVE POWER SUPPLY
+*                       |  |  |  NEGATIVE POWER SUPPLY
+*                       |  |  |  |  OUTPUT
+*                       |  |  |  |  |
+X1                     14 13  3  4  5  A3_105E
+*
+R1    2   13   25000
+R2    13   9   24997.5
+C2    13   9   0.1PF
+R3    1   14   25000
+R4    14   8   25000
+*
+C1CM  14   0   1.5PF
+C2CM  13   0   1.5PF
+CDIF  14  13   1.5PF
+*
+.ENDS
+*
