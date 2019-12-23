@@ -27,6 +27,36 @@ const float pulseHighAmp = 5;
 const float pulseLowAmp = 0;
 const unsigned int pulseOnCycles = 2;
 
+void loadCalibration()
+{
+  unsigned int addr = 0x10;
+  for(unsigned int channel = 0;channel<4;channel++)
+  {
+    EEPROM.get(addr,zeroAmpVal[channel]);
+    addr+=4;
+    for(unsigned int i=0;i<numCalElements;i++)
+    {
+      EEPROM.get(addr,OPAmpVoltageToCurrentFactor[channel][i]);
+      addr+=4;      
+    }
+  }
+}
+
+void saveCalibration()
+{
+  unsigned int addr = 0x10;
+  for(unsigned int channel = 0;channel<4;channel++)
+  {
+    EEPROM.put(addr,zeroAmpVal[channel]);
+    addr+=4;
+    for(unsigned int i=0;i<numCalElements;i++)
+    {
+      EEPROM.put(addr,OPAmpVoltageToCurrentFactor[channel][i]);
+      addr+=4;      
+    }
+  }
+}
+
 void initADC(){
   byte dataToSend[4];
 
@@ -131,18 +161,7 @@ void setup()
  
   EEPROM.get(0x00,mode);  
   EEPROM.get(0x01,channel);  
-  EEPROM.get(0x10,zeroAmpVal[0]);
-  EEPROM.get(0x20,zeroAmpVal[1]);
-  EEPROM.get(0x30,zeroAmpVal[2]);
-  EEPROM.get(0x40,zeroAmpVal[3]);
-  EEPROM.get(0x14,OPAmpVoltageToCurrentFactor[0][0]);
-  EEPROM.get(0x14,OPAmpVoltageToCurrentFactor[0][1]);
-  EEPROM.get(0x24,OPAmpVoltageToCurrentFactor[1][0]);
-  EEPROM.get(0x24,OPAmpVoltageToCurrentFactor[1][1]);
-  EEPROM.get(0x34,OPAmpVoltageToCurrentFactor[2][0]);
-  EEPROM.get(0x34,OPAmpVoltageToCurrentFactor[2][1]);
-  EEPROM.get(0x44,OPAmpVoltageToCurrentFactor[3][0]);
-  EEPROM.get(0x44,OPAmpVoltageToCurrentFactor[3][1]);
+  loadCalibration();
 
   if(channel<0 || channel >3)
     channel=3;
@@ -376,11 +395,13 @@ void determineGainValues()
       }    
     }
   }
-  EEPROM.put(0x04+((channel+1)<<4),OPAmpVoltageToCurrentFactor[channel][0]);
-  EEPROM.put(0x08+((channel+1)<<4),OPAmpVoltageToCurrentFactor[channel][1]);
+  saveCalibration();
   writeDACValue(AmpereToDAC(0),channel);
 }
 
+/*
+ * This routine only functions properly if the coil is connected all the time.
+ */
 void findZeroAmpVoltage()
 {
   char data[100];
@@ -431,6 +452,7 @@ void findZeroAmpVoltage()
       }    
     }
   }
+  saveCalibration();  
 }
 
 
