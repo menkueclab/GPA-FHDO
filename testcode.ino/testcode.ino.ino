@@ -392,7 +392,7 @@ void determineGainValues()
   for(unsigned int loopCount=0;loopCount<numCalElements;loopCount++)
   {
     writeDACValue(calVal[loopCount],channel);
-    delay(1);
+    delayMicroseconds(100);
     for(int n=0;n<4;n++)
     {  
       dataToSend[0]=0x00;
