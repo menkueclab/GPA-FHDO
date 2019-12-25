@@ -197,16 +197,30 @@ float ADCToAmpere(const unsigned int val)
   return (ADCToVolt(val)-2.5)/resistance;
 }
 
-
-float DACToAmpere(const unsigned int val)
-{
-  return 0;
-}
-
-
 float DACToVolt(const unsigned int val)
 {
   return static_cast<float>(val)/static_cast<float>(0xFFFF)*5.0;
+}
+
+float DACToAmpere(const unsigned int val)
+{
+  unsigned int leftIndex=0;
+  unsigned int rightIndex=numCalElements-1;
+  calVal[(numCalElements-1)/2]=zeroAmpVal[channel];
+  for(unsigned int n=0;n<numCalElements;n++)
+  {
+    if(calVal[n]<=val)
+      leftIndex=n;
+    if(calVal[n]>=val)
+    {
+      rightIndex=n;
+      break;
+    }
+  }  
+  if(leftIndex==rightIndex)
+    return OPAmpVoltageToCurrentFactor[channel][leftIndex];
+  return (OPAmpVoltageToCurrentFactor[channel][rightIndex]-OPAmpVoltageToCurrentFactor[channel][leftIndex])/(calVal[rightIndex]-calVal[leftIndex])
+    *(val-calVal[leftIndex])+OPAmpVoltageToCurrentFactor[channel][leftIndex];
 }
 
 unsigned int AmpereToDAC(const float ampere)
@@ -224,15 +238,8 @@ unsigned int AmpereToDAC(const float ampere)
       break;
     }
   }  
-  //char data[100];
-  //sprintf(data,"left %d right %d\n", leftIndex,rightIndex);
-  //Serial.print(data);  
   if(leftIndex==rightIndex)
-  {
-    Serial.print("Ampere value outside calibration range!");
-    delay(1000);
     return calVal[leftIndex];
-  }
   return (calVal[rightIndex]-calVal[leftIndex])/(OPAmpVoltageToCurrentFactor[channel][rightIndex]-OPAmpVoltageToCurrentFactor[channel][leftIndex])
     *(ampere-OPAmpVoltageToCurrentFactor[channel][leftIndex])+calVal[leftIndex];
 }
@@ -319,7 +326,10 @@ void rampLoop()
     if(rampVal<AmpereToDAC(rampMaxAmp))
       rampVal+=rampStepSize;
     else
-      rampVal=AmpereToDAC(rampMinAmp);
+    {
+      mode = Mode::idle;
+      return;
+    }
   }
   else
     rampLoopCount++;
@@ -417,60 +427,64 @@ void determineGainValues()
   writeDACValue(AmpereToDAC(0),channel);
 }
 
+
+static unsigned long currentV = 0x8000;
+static unsigned long lastV=0;
+  
+void initFindZeroAmpVoltage()
+{
+  currentV = 0x8000;
+  lastV = 0;
+}
+
 /*
  * This routine only functions properly if the coil is connected all the time.
  */
-void findZeroAmpVoltage()
+void findZeroAmpVoltageLoop()
 {
   char data[100];
-  unsigned long currentV = 0x8000;
-  unsigned long lastV=0;
   byte dataToSend[4];
   char str_temp2[15];
   char str_temp[15];
   
-  bool continueLoop=true;
-  while(continueLoop)
-  {   
-    writeDACValue(currentV,channel);    
-  
-    for(int n=0;n<4;n++)
-    {  
-      dataToSend[0]=0x00;
-      dataToSend[1]=0x00;
-      dataToSend[2]=0x00;
-      dataToSend[3]=0x00;
-      digitalWrite(SS,HIGH); 
-      SPI.transfer(dataToSend,4);
-      digitalWrite(SS,LOW);   
-      if(channel == n)
+  writeDACValue(currentV,channel);    
+
+  for(int n=0;n<4;n++)
+  {  
+    dataToSend[0]=0x00;
+    dataToSend[1]=0x00;
+    dataToSend[2]=0x00;
+    dataToSend[3]=0x00;
+    digitalWrite(SS,HIGH); 
+    SPI.transfer(dataToSend,4);
+    digitalWrite(SS,LOW);   
+    if(channel == n)
+    {
+      const float dacVolt = DACToVolt(currentV);
+      const float volt = ADCToVolt(static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]));
+      dtostrf(dacVolt, 10, 7, str_temp2);      
+      dtostrf(volt, 10, 7, str_temp);
+      sprintf(data,"%02x%02x %s -> %s V\r\n",(byte)(currentV>>8),(byte)currentV,str_temp2,str_temp);
+      Serial.print(data);
+
+      const unsigned long temp=currentV;
+      if(volt>2.5)
+        currentV--;
+      else
+        currentV++;
+
+      if(currentV==lastV)
       {
-        const float dacVolt = DACToVolt(currentV);
-        const float volt = ADCToVolt(static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]));
-        dtostrf(dacVolt, 10, 7, str_temp2);      
-        dtostrf(volt, 10, 7, str_temp);
-        sprintf(data,"%02x%02x %s -> %s V\r\n",(byte)(currentV>>8),(byte)currentV,str_temp2,str_temp);
-        Serial.print(data);
-  
-        const unsigned long temp=currentV;
-        if(volt>2.5)
-          currentV--;
-        else
-          currentV++;
-  
-        if(currentV==lastV)
-        {
-          zeroAmpVal[channel] = currentV;
-          EEPROM.put(0x00+((channel+1)<<4),zeroAmpVal[channel]);
-          Serial.print("Zero current voltage found\r\n");
-          continueLoop=false;
-        }
-        else
-          lastV=temp;
-      }    
-    }
+        zeroAmpVal[channel] = currentV;
+        EEPROM.put(0x00+((channel+1)<<4),zeroAmpVal[channel]);
+        Serial.print("Zero current voltage found\r\n");
+        saveCalibration();  
+        mode=Mode::idle;
+      }
+      else
+        lastV=temp;
+    }    
   }
-  saveCalibration();  
 }
 
 
@@ -515,6 +529,7 @@ void loop()
       case 'f':
       {
         mode=Mode::findZeroAmp;
+        initFindZeroAmpVoltage();
       }
       break;
       case 'g':
@@ -547,11 +562,13 @@ void loop()
       break;      
       case 'q':
       {
+        char data[50];
+        sprintf(data,"active channel %d\r\n",channel+1);
+        Serial.print(data); 
         for(unsigned char n=0;n<4;n++)
         {
           char str_temp[20];
           dtostrf(DACToVolt(zeroAmpVal[n]), 10, 7, str_temp);
-          char data[50];
           sprintf(data,"channel %d\r\n   zeroAmpVoltage: %s V \r\n",n+1,str_temp);
           Serial.print(data);
           for(unsigned int i=0;i<numCalElements;i++)
@@ -592,8 +609,7 @@ void loop()
     break;
     case Mode::findZeroAmp:
     {
-      findZeroAmpVoltage();
-      mode=Mode::idle;
+      findZeroAmpVoltageLoop();
     }
     break;
     case Mode::calGain:
