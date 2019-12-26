@@ -7,6 +7,7 @@ This Gradient Power Amplifier (GPA) has 4 channels, of which each can drive a cu
 ### Contributing
 
   * Jason Stockmann
+  * Odin Holmes
 
 ### References
 
