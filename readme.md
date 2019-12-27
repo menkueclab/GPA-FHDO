@@ -7,8 +7,10 @@ This Gradient Power Amplifier (GPA) has 4 channels, of which each can drive a cu
 ### Contributing
 
   * Jason Stockmann
+  * Nicolas Arango
   * Odin Holmes
 
 ### References
 
   * https://tabletop.martinos.org/index.php/Hardware:GPA
+  * https://rflab.martinos.org/index.php/Current_driver:Current_driver
