@@ -19,7 +19,7 @@
 #include <EEPROM.h>
 #include <SPI.h>
 
-enum class Mode : char{idle,ramp,pulse,findZeroAmp,calGain};
+enum class Mode : char{idle,ramp,pulse,findZeroAmp,calGain, read};
 
 // eeprom saved variables
 const unsigned int numCalElements = 33;
@@ -259,6 +259,24 @@ void writeDACValue(const unsigned int val, const char channel)
   //Serial.print(data);
 }
 
+unsigned int readADC()
+{
+  byte dataToSend[4];
+  for(int n=0;n<4;n++)
+  {  
+    dataToSend[0]=0x00;
+    dataToSend[1]=0x00;
+    dataToSend[2]=0x00;
+    dataToSend[3]=0x00;
+    digitalWrite(SS,HIGH); 
+    SPI.transfer(dataToSend,4);
+    digitalWrite(SS,LOW);   
+    if(channel == n)
+      return (static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]));
+  }  
+  return 0;
+}
+
 void pulseLoop()
 {
   char data[100];
@@ -279,30 +297,16 @@ void pulseLoop()
   else
     writeDACValue(Vlow, channel);
 
-  Serial.print(loopCount);
-  Serial.print("\t");
-  for(int n=0;n<4;n++)
-  {
-    byte dataToSend[4];
-    dataToSend[0]=0x00;
-    dataToSend[1]=0x00;
-    dataToSend[2]=0x00;
-    dataToSend[3]=0x00;
-  
-    digitalWrite(SS,HIGH); 
-    SPI.transfer(dataToSend,4);
-    digitalWrite(SS,LOW); 
-    char str_temp[20];
-    /* 4 is mininum width, 2 is precision; float value is copied onto str_temp*/
-    dtostrf(ADCToAmpere(static_cast<unsigned long>(dataToSend[2])<<8 | static_cast<unsigned long>(dataToSend[3])), 10, 7, str_temp);
-    if(displayHexValues)
-      sprintf(data,"%02x%02x %s\t",dataToSend[2],dataToSend[3],str_temp);
-    else
-      sprintf(data,"%s A\t",str_temp);
-    Serial.print(data);
-  }
-  Serial.print("\r\n");  
   delay(1);
+  /* 4 is mininum width, 2 is precision; float value is copied onto str_temp*/
+  const unsigned int ADCCode = readADC();
+  char str_temp[20];
+  dtostrf(ADCToAmpere(ADCCode), 10, 7, str_temp);
+  if(displayHexValues)
+    sprintf(data,"%d\t%04x %s A\t\r\n",loopCount,ADCCode,str_temp);
+  else
+    sprintf(data,"%d\t%s A\r\n",loopCount,str_temp);
+  Serial.print(data);
 }
 
 unsigned int rampVal = 0;
@@ -348,53 +352,19 @@ void rampLoop()
   }
   delay(1); // wait 1 ms
 
-  if(!plotDataOnly)
-  {
-    Serial.print(rampLoopCount);
-    Serial.print("\t");
-  }
-
-  for(int n=0;n<4;n++)
-  {
-    byte dataToSend[4];
-    dataToSend[0]=0x00;
-    dataToSend[1]=0x00;
-    dataToSend[2]=0x00;
-    dataToSend[3]=0x00;
-  
-    digitalWrite(SS,HIGH); 
-    SPI.transfer(dataToSend,4);
-    digitalWrite(SS,LOW); 
-    char str_temp[20];
-    const unsigned int ADCVal= static_cast<unsigned long>(dataToSend[2])<<8 | static_cast<unsigned long>(dataToSend[3]);
-    dtostrf(ADCToAmpere(ADCVal), 10, 7, str_temp);
-    if(plotDataOnly)
-    {
-      if(channel == n)
-      {
-        char str_temp2[20];
-        dtostrf(DACToAmpere(rampVal), 10, 7, str_temp2);
-        sprintf(data,"0x%04x %s 0x%04x %s",rampVal,str_temp2,ADCVal,str_temp);
-        Serial.print(data);
-      }
-    }
-    else
-    {
-      if(displayHexValues)
-        sprintf(data,"%02x%02x %s\t",ADCVal,str_temp);
-      else
-        sprintf(data,"%s A\t",str_temp);
-      Serial.print(data);
-    }
-  }
-  Serial.print("\r\n");      
+  char str_temp[20];
+  const unsigned int ADCVal= readADC();
+  dtostrf(ADCToAmpere(ADCVal), 10, 7, str_temp);
+  char str_temp2[20];
+  dtostrf(DACToAmpere(rampVal), 10, 7, str_temp2);
+  sprintf(data,"0x%04x %s 0x%04x %s\r\n",rampVal,str_temp2,ADCVal,str_temp);
+  Serial.print(data);
 }
 
 void determineGainValues()
 {
   char data[100];
   char str_temp[20];
-  char str_temp2[20];
   byte dataToSend[4];
 
   calVal[(numCalElements-1)/2]=zeroAmpVal[channel];
@@ -403,38 +373,24 @@ void determineGainValues()
   {
     writeDACValue(calVal[loopCount],channel);
     delayMicroseconds(100);
-    for(int n=0;n<4;n++)
-    {  
-      dataToSend[0]=0x00;
-      dataToSend[1]=0x00;
-      dataToSend[2]=0x00;
-      dataToSend[3]=0x00;
-      digitalWrite(SS,HIGH); 
-      SPI.transfer(dataToSend,4);
-      digitalWrite(SS,LOW);   
-      if(channel == n)
-      {
-        float ampere = ADCToAmpere(static_cast<unsigned long>(dataToSend[2])<<8 | static_cast<unsigned long>(dataToSend[3]));
-        dtostrf(ADCToVolt(static_cast<unsigned long>(dataToSend[2])<<8 | static_cast<unsigned long>(dataToSend[3])), 10, 7, str_temp);
-        OPAmpVoltageToCurrentFactor[channel][loopCount]=ampere;
-        dtostrf(OPAmpVoltageToCurrentFactor[channel][loopCount], 10, 7, str_temp2);
-        sprintf(data,"%02x%02x -> %s V  %s A\r\n",(byte)(calVal[loopCount]>>8),(byte)calVal[loopCount],str_temp,str_temp2);
-        Serial.print(data);
-      }    
-    }
+    float ampere = ADCToAmpere(readADC());
+    OPAmpVoltageToCurrentFactor[channel][loopCount]=ampere;
+    dtostrf(OPAmpVoltageToCurrentFactor[channel][loopCount], 10, 7, str_temp);
+    sprintf(data,"%02x%02x -> %s A\r\n",(byte)(calVal[loopCount]>>8),(byte)calVal[loopCount],str_temp);
+    Serial.print(data);
   }
   saveCalibration();
   writeDACValue(AmpereToDAC(0),channel);
 }
 
 
-static unsigned long currentV = 0x8000;
-static unsigned long lastV=0;
+static unsigned int currentDACCode = 0x8000;
+static unsigned int lastDACCode=0;
   
 void initFindZeroAmpVoltage()
 {
-  currentV = 0x8000;
-  lastV = 0;
+  currentDACCode = 0x8000;
+  lastDACCode = 0;
 }
 
 /*
@@ -443,50 +399,46 @@ void initFindZeroAmpVoltage()
 void findZeroAmpVoltageLoop()
 {
   char data[100];
-  byte dataToSend[4];
-  char str_temp2[15];
-  char str_temp[15];
+  char str_temp2[20];
+  char str_temp[20];
   
-  writeDACValue(currentV,channel);    
+  writeDACValue(currentDACCode,channel);    
+  delay(1);
+  const float amp = ADCToAmpere(readADC());
+  const float dacVolt = DACToVolt(currentDACCode);
+  dtostrf(dacVolt, 10, 7, str_temp2);      
+  dtostrf(amp, 10, 7, str_temp);
+  sprintf(data,"0x%04x %s V -> %s A\r\n",currentDACCode,str_temp2,str_temp);
+  Serial.print(data);
 
-  for(int n=0;n<4;n++)
-  {  
-    dataToSend[0]=0x00;
-    dataToSend[1]=0x00;
-    dataToSend[2]=0x00;
-    dataToSend[3]=0x00;
-    digitalWrite(SS,HIGH); 
-    SPI.transfer(dataToSend,4);
-    digitalWrite(SS,LOW);   
-    if(channel == n)
-    {
-      const float dacVolt = DACToVolt(currentV);
-      const float volt = ADCToVolt(static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]));
-      dtostrf(dacVolt, 10, 7, str_temp2);      
-      dtostrf(volt, 10, 7, str_temp);
-      sprintf(data,"%02x%02x %s -> %s V\r\n",(byte)(currentV>>8),(byte)currentV,str_temp2,str_temp);
-      Serial.print(data);
+  const unsigned int temp=currentDACCode;
+  if(amp>0)
+    currentDACCode--;
+  else
+    currentDACCode++;
 
-      const unsigned long temp=currentV;
-      if(volt>2.5)
-        currentV--;
-      else
-        currentV++;
-
-      if(currentV==lastV)
-      {
-        zeroAmpVal[channel] = currentV;
-        EEPROM.put(0x00+((channel+1)<<4),zeroAmpVal[channel]);
-        Serial.print("Zero current voltage found\r\n");
-        saveCalibration();  
-        mode=Mode::idle;
-      }
-      else
-        lastV=temp;
-    }    
+  if(currentDACCode==lastDACCode)
+  {
+    zeroAmpVal[channel] = currentDACCode;
+    EEPROM.put(0x00+((channel+1)<<4),zeroAmpVal[channel]);
+    Serial.print("Zero current voltage found\r\n");
+    saveCalibration();  
+    mode=Mode::idle;
   }
+  else
+    lastDACCode=temp;
 }
 
+void readLoop()
+{
+  char str_temp[20];
+  const unsigned int ADCCode= readADC();
+  dtostrf(ADCToAmpere(ADCCode), 10, 7, str_temp);
+  char data[100];
+  sprintf(data,"0x%04x %s\r\n",ADCCode,str_temp);  
+  Serial.print(data);
+  delay(1);
+}
 
 void loop() 
 {
@@ -537,6 +489,11 @@ void loop()
         mode=Mode::calGain;
       }
       break;
+      case 'd':
+      {
+        mode=Mode::read;
+      }
+      break;      
       case 's':
       {
         delay(100);
@@ -612,12 +569,17 @@ void loop()
       findZeroAmpVoltageLoop();
     }
     break;
+    case Mode::read:
+    {
+      readLoop();    
+    }
+    break;
     case Mode::calGain:
     {
       determineGainValues();    
       mode=Mode::idle;
     }
-    break;
+    break;    
     default:
     Serial.print("invalid mode\r\n");  
     delay(100);
