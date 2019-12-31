@@ -75,39 +75,39 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
-<layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
-<layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="103" name="tMap" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="104" name="Name" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="105" name="tPlate" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="106" name="bPlate" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="107" name="Crop" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
-<layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="101" name="Patch_Top" color="12" fill="4" visible="no" active="yes"/>
+<layer number="102" name="Vscore" color="7" fill="1" visible="no" active="yes"/>
+<layer number="103" name="tMap" color="7" fill="1" visible="no" active="yes"/>
+<layer number="104" name="Name" color="7" fill="1" visible="no" active="yes"/>
+<layer number="105" name="tPlate" color="7" fill="1" visible="no" active="yes"/>
+<layer number="106" name="bPlate" color="7" fill="1" visible="no" active="yes"/>
+<layer number="107" name="Crop" color="7" fill="1" visible="no" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
+<layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="yes"/>
+<layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="yes"/>
+<layer number="125" name="_tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
+<layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
+<layer number="200" name="200bmp" color="1" fill="10" visible="no" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="1" visible="no" active="no"/>
 <layer number="202" name="202bmp" color="3" fill="1" visible="no" active="no"/>
-<layer number="203" name="203bmp" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="204" name="204bmp" color="5" fill="10" visible="yes" active="yes"/>
-<layer number="205" name="205bmp" color="6" fill="10" visible="yes" active="yes"/>
-<layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
-<layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
-<layer number="208" name="208bmp" color="9" fill="10" visible="yes" active="yes"/>
-<layer number="209" name="209bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="210" name="210bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="211" name="211bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="212" name="212bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="213" name="213bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="214" name="214bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="215" name="215bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="216" name="216bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="203" name="203bmp" color="4" fill="10" visible="no" active="yes"/>
+<layer number="204" name="204bmp" color="5" fill="10" visible="no" active="yes"/>
+<layer number="205" name="205bmp" color="6" fill="10" visible="no" active="yes"/>
+<layer number="206" name="206bmp" color="7" fill="10" visible="no" active="yes"/>
+<layer number="207" name="207bmp" color="8" fill="10" visible="no" active="yes"/>
+<layer number="208" name="208bmp" color="9" fill="10" visible="no" active="yes"/>
+<layer number="209" name="209bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="210" name="210bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="211" name="211bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="212" name="212bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="213" name="213bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="214" name="214bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="215" name="215bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="216" name="216bmp" color="7" fill="1" visible="no" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
-<layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="254" name="cooling" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -193,11 +193,11 @@
 <vertex x="111.2" y="45"/>
 <vertex x="107.9" y="45"/>
 </polygon>
-<text x="116.3" y="186.8" size="2" layer="51">Channel 4</text>
-<text x="116.2" y="140.6" size="2" layer="51">Channel 3</text>
-<text x="116.3" y="94.5" size="2" layer="51">Channel 2</text>
-<text x="116.4" y="48.4" size="2" layer="51">Channel 1</text>
-<text x="18.6" y="10.5" size="2" layer="51" font="vector" rot="R90">GPA-FHDO Low-field MRI Gradient Power Amplifier
+<text x="116.3" y="186.8" size="2" layer="25">Channel 4</text>
+<text x="116.2" y="140.6" size="2" layer="25">Channel 3</text>
+<text x="116.3" y="94.5" size="2" layer="25">Channel 2</text>
+<text x="116.4" y="48.4" size="2" layer="25">Channel 1</text>
+<text x="18.6" y="10.5" size="2" layer="25" font="vector" rot="R90">GPA-FHDO Low-field MRI Gradient Power Amplifier
 Version 1.2
 Copyright Benjamin Menkuec 2020
 Contributors: https://github.com/menkueclab/GPA-FHDO#contributing
@@ -209,31 +209,36 @@ Dortmund / Germany</text>
 <hole x="7" y="155" drill="4"/>
 <hole x="75" y="193" drill="4"/>
 <hole x="27.25" y="196.5" drill="3"/>
-<text x="10.55" y="148.3" size="1.5" layer="51">SDI</text>
-<text x="10.4" y="146.3" size="1.5" layer="51">SDO</text>
-<text x="10.45" y="150.4" size="1.5" layer="51">CLK</text>
-<text x="10.5" y="144.2" size="1.5" layer="51">CS</text>
-<wire x1="15" y1="151.2" x2="19.2" y2="155.4" width="0.3" layer="51"/>
-<wire x1="14.8" y1="148.6" x2="19.4" y2="153.2" width="0.3" layer="51"/>
-<wire x1="15.4" y1="147.4" x2="19.2" y2="151.2" width="0.3" layer="51"/>
-<wire x1="13.8" y1="145" x2="15.2" y2="145" width="0.3" layer="51"/>
-<wire x1="15.2" y1="145" x2="19.4" y2="149" width="0.3" layer="51"/>
-<text x="48.4" y="114.2" size="1.5" layer="51">3</text>
-<text x="48.4" y="111.6" size="1.5" layer="51">2</text>
-<text x="48.4" y="109.4" size="1.5" layer="51">1</text>
-<text x="48.4" y="107.2" size="1.5" layer="51">0</text>
-<text x="49.4" y="116.6" size="1.5" layer="51" rot="R90">DAC</text>
-<text x="52.2" y="101.8" size="1.5" layer="51" rot="R90">CURRENT</text>
-<text x="51.2" y="99.2" size="1.5" layer="51">3</text>
-<text x="51.2" y="96.8" size="1.5" layer="51">2</text>
-<text x="51" y="94.4" size="1.5" layer="51">1</text>
-<text x="51" y="92.2" size="1.5" layer="51">0</text>
-<text x="47.6" y="74" size="1.5" layer="51" rot="R90">FAULT</text>
-<text x="46.4" y="71.4" size="1.5" layer="51">3</text>
-<text x="46.4" y="69" size="1.5" layer="51">2</text>
-<text x="46.4" y="66.6" size="1.5" layer="51">1</text>
-<text x="46.4" y="64.2" size="1.5" layer="51">0</text>
-<text x="38.8" y="144" size="1.5" layer="51">REF 2.5V</text>
+<text x="10.55" y="148.3" size="1.5" layer="25">SDI</text>
+<text x="10.4" y="146.3" size="1.5" layer="25">SDO</text>
+<text x="10.45" y="150.4" size="1.5" layer="25">CLK</text>
+<text x="10.5" y="144.2" size="1.5" layer="25">CS</text>
+<wire x1="15" y1="151.2" x2="19.2" y2="155.4" width="0.3" layer="25"/>
+<wire x1="14.8" y1="148.6" x2="19.4" y2="153.2" width="0.3" layer="25"/>
+<wire x1="15.4" y1="147.4" x2="19.2" y2="151.2" width="0.3" layer="25"/>
+<wire x1="13.8" y1="145" x2="15.2" y2="145" width="0.3" layer="25"/>
+<wire x1="15.2" y1="145" x2="19.4" y2="149" width="0.3" layer="25"/>
+<text x="48.4" y="114.2" size="1.5" layer="25">4</text>
+<text x="48.4" y="111.6" size="1.5" layer="25">3</text>
+<text x="48.4" y="109.4" size="1.5" layer="25">2</text>
+<text x="48.4" y="107.2" size="1.5" layer="25">1</text>
+<text x="49.4" y="116.6" size="1.5" layer="25" rot="R90">DAC</text>
+<text x="52.2" y="101.8" size="1.5" layer="25" rot="R90">CURRENT</text>
+<text x="51.2" y="99.2" size="1.5" layer="25">4</text>
+<text x="51.2" y="96.8" size="1.5" layer="25">3</text>
+<text x="51" y="94.4" size="1.5" layer="25">2</text>
+<text x="51" y="92.2" size="1.5" layer="25">1</text>
+<text x="47.6" y="74" size="1.5" layer="25" rot="R90">FAULT</text>
+<text x="46.4" y="71.4" size="1.5" layer="25">4</text>
+<text x="46.4" y="69" size="1.5" layer="25">3</text>
+<text x="46.4" y="66.6" size="1.5" layer="25">2</text>
+<text x="46.4" y="64.2" size="1.5" layer="25">1</text>
+<text x="38.8" y="144" size="1.5" layer="25">REF 2.5V</text>
+<text x="42" y="108.6" size="1.778" layer="25" rot="R90">GND</text>
+<text x="38.8" y="66" size="1.778" layer="25" rot="R90">GND</text>
+<text x="44.6" y="164.6" size="1.778" layer="25" rot="R90">+</text>
+<text x="38.8" y="170.2" size="1.778" layer="25" rot="R90">+</text>
+<text x="48" y="150.4" size="1.778" layer="25" rot="R90">+</text>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -2415,7 +2420,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="23.72" y="89.44" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="U5" library="my_parts" package="TSSOP38_LONG_PINS" value="ADS8684A" x="32.78" y="95.88" smashed="yes">
-<attribute name="NAME" x="18.224" y="93.434" size="1.27" layer="25"/>
+<attribute name="NAME" x="25.424" y="99.234" size="1.27" layer="25"/>
 <attribute name="VALUE" x="17.924" y="91.856" size="1.27" layer="27"/>
 </element>
 <element name="U20" library="my_parts" package="SOT23-5" value="MC74HC1" x="25.7" y="105.21" smashed="yes" rot="R180">
