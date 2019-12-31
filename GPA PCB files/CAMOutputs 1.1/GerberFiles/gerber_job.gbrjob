@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-11-25T07:42:58Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.4.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.99,
+        "LayerNumber": 4,
+        "Name": {
+            "ProjectId": "GPA_dortmund"
+        },
+        "Owner": "Benjamin Menkuc <benjamin@menkuec.de>",
+        "Size": {
+            "X": 130,
+            "Y": 200
+        }
+    }
+}

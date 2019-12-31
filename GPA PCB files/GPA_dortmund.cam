@@ -1,7 +1,7 @@
 {
     "author": {
-        "email": "benjamin@menkuec.de",
-        "name": "Benjamin Menkuc"
+        "email": "support.eagle@autodesk.com",
+        "name": "Autodesk EAGLE"
     },
     "description": {
         "EN": "EAGLE default 4 layer CAM job."
@@ -320,7 +320,7 @@
             ]
         }
     ],
-    "timestamp": "2019-12-25T10:44:42",
+    "timestamp": "2019-04-12T17:59:06",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "9.2.0"
