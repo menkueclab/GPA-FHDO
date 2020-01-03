@@ -131,6 +131,8 @@ void initADC(){
   delay(10);
   digitalWrite(SS,LOW);   
 
+  /*
+  // not necessary, is already default
   dataToSend[0]=0x05; // set all channels to power up state
   dataToSend[1]=0x00;
   dataToSend[2]=0x00;
@@ -140,7 +142,10 @@ void initADC(){
   SPI.transfer(dataToSend,3);
   delay(10);
   digitalWrite(SS,LOW);  
-    
+  */
+
+  // autoscan mode is not used, so the code below is not necessary
+  /*
   dataToSend[0]=0x03; // enable all channels for autoscan
   dataToSend[1]=0x0f;
   dataToSend[2]=0x00;
@@ -150,8 +155,9 @@ void initADC(){
   SPI.transfer(dataToSend,3);
   delay(10);
   digitalWrite(SS,LOW);   
+ 
 
-  
+
   dataToSend[0]=0xA0;
   dataToSend[1]=0x00;
   dataToSend[2]=0x00;
@@ -163,6 +169,7 @@ void initADC(){
   delay(10);
   digitalWrite(SS,LOW); 
   delay(10);
+  */
 }
 
 
@@ -244,7 +251,7 @@ unsigned int AmpereToDAC(const float ampere)
     *(ampere-OPAmpVoltageToCurrentFactor[channel][leftIndex])+calVal[leftIndex];
 }
 
-void writeDACValue(const unsigned int val, const char channel)
+void writeDACValue(const unsigned int val)
 {
   byte dataToSend[4];
   dataToSend[0]=0x08 + channel; 
@@ -262,19 +269,21 @@ void writeDACValue(const unsigned int val, const char channel)
 unsigned int readADC()
 {
   byte dataToSend[4];
-  for(int n=0;n<4;n++)
-  {  
-    dataToSend[0]=0x00;
-    dataToSend[1]=0x00;
-    dataToSend[2]=0x00;
-    dataToSend[3]=0x00;
-    digitalWrite(SS,HIGH); 
-    SPI.transfer(dataToSend,4);
-    digitalWrite(SS,LOW);   
-    if(channel == n)
-      return (static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]));
-  }  
-  return 0;
+  dataToSend[0]=0xC0 | (channel << 2);
+  dataToSend[1]=0x00;
+  dataToSend[2]=0x00;
+  dataToSend[3]=0x00;
+  digitalWrite(SS,HIGH); 
+  SPI.transfer(dataToSend,4);
+  digitalWrite(SS,LOW); 
+  dataToSend[0]=0xC0;
+  dataToSend[1]=0x00;
+  dataToSend[2]=0x00;
+  dataToSend[3]=0x00;  
+  digitalWrite(SS,HIGH); 
+  SPI.transfer(dataToSend,4);
+  digitalWrite(SS,LOW);  
+  return static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]);  
 }
 
 void pulseLoop()
@@ -293,9 +302,9 @@ void pulseLoop()
     loopCount++;
     
   if(loopCount <pulseOnCycles)
-    writeDACValue(Vhigh, channel);
+    writeDACValue(Vhigh);
   else
-    writeDACValue(Vlow, channel);
+    writeDACValue(Vlow);
 
   delay(1);
   /* 4 is mininum width, 2 is precision; float value is copied onto str_temp*/
@@ -348,7 +357,7 @@ void rampLoop()
       sprintf(data,"*** set current to %s A ***\r\n",str_temp);
       Serial.print(data);    
     }
-    writeDACValue(rampVal,channel);
+    writeDACValue(rampVal);
   }
   delay(1); // wait 1 ms
 
@@ -371,7 +380,7 @@ void determineGainValues()
 
   for(unsigned int loopCount=0;loopCount<numCalElements;loopCount++)
   {
-    writeDACValue(calVal[loopCount],channel);
+    writeDACValue(calVal[loopCount]);
     delayMicroseconds(100);
     float ampere = ADCToAmpere(readADC());
     OPAmpVoltageToCurrentFactor[channel][loopCount]=ampere;
@@ -380,7 +389,7 @@ void determineGainValues()
     Serial.print(data);
   }
   saveCalibration();
-  writeDACValue(AmpereToDAC(0),channel);
+  writeDACValue(AmpereToDAC(0));
 }
 
 
@@ -402,7 +411,7 @@ void findZeroAmpVoltageLoop()
   char str_temp2[20];
   char str_temp[20];
   
-  writeDACValue(currentDACCode,channel);    
+  writeDACValue(currentDACCode);    
   delay(1);
   const float amp = ADCToAmpere(readADC());
   const float dacVolt = DACToVolt(currentDACCode);
@@ -510,7 +519,7 @@ void loop()
           float ampere=inByte-'0';
           if(neg)
             ampere*=-1;
-          writeDACValue(AmpereToDAC(ampere),channel);
+          writeDACValue(AmpereToDAC(ampere));
           char data[50];
           sprintf(data,"Set channel %d to %d A\r\n",channel+1,(int)ampere);
           Serial.print(data);    
@@ -556,13 +565,15 @@ void loop()
       rampLoop();
       if(rampCyclePause>0)
       {
-        writeDACValue(AmpereToDAC(0),channel);      
+        writeDACValue(AmpereToDAC(0));      
         delay(rampCyclePause);
       }
     }
     break;
     case Mode::pulse:
-    pulseLoop();
+    {
+      pulseLoop();
+    }
     break;
     case Mode::findZeroAmp:
     {
