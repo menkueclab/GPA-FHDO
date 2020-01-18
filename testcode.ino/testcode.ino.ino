@@ -351,6 +351,8 @@ void determineGainValues()
 
   calVal[(numCalElements-1)/2]=zeroAmpVal[channel];
 
+  sprintf(data,"DAC code, output current [A] %s\r\n");
+  Serial.print(data);
   for(unsigned int loopCount=0;loopCount<numCalElements;loopCount++)
   {
     writeDACValue(calVal[loopCount]);
@@ -358,7 +360,7 @@ void determineGainValues()
     float ampere = ADCToAmpere(readADC());
     OPAmpVoltageToCurrentFactor[channel][loopCount]=ampere;
     dtostrf(OPAmpVoltageToCurrentFactor[channel][loopCount], 10, 7, str_temp);
-    sprintf(data,"%02x%02x -> %s A\r\n",(byte)(calVal[loopCount]>>8),(byte)calVal[loopCount],str_temp);
+    sprintf(data,"0x%02x%02x %s\r\n",(byte)(calVal[loopCount]>>8),(byte)calVal[loopCount],str_temp);
     Serial.print(data);
   }
   saveCalibration();
