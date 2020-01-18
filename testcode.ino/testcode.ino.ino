@@ -75,6 +75,17 @@ void saveCalibration()
   }
 }
 
+void initDAC()
+{
+  byte dataToSend[3];
+  dataToSend[0]=0x03; // config register
+  dataToSend[1]=0x01; // disable internal reference
+  dataToSend[2]=0x00;
+  digitalWrite(SS,LOW); 
+  SPI.transfer(dataToSend,3);
+  digitalWrite(SS,HIGH);   
+}
+
 void initADC(){
   byte dataToSend[4];
 
@@ -156,6 +167,7 @@ void setup()
   SPI.setBitOrder(MSBFIRST);
   SPI.setDataMode(SPImode);
   initADC();
+  initDAC();
  
   EEPROM.get(0x00,mode);  
   EEPROM.get(0x01,channel);  

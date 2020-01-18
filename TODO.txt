@@ -1,0 +1,5 @@
+V1.2 
+
+- INA149 needs 1.5 V head room, it is connected to 12 V and GND, 
+  therefore smallest possible output voltage is around 1.5 V which corresponds to -5 A
+-> FIX: use a 3.3 V ref for the INA149 (input range of the ADC can be set to 0 - 2.5*4.096 V)
