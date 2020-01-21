@@ -363,7 +363,7 @@ void determineGainValues()
 
   calVal[(numCalElements-1)/2]=zeroAmpVal[channel];
 
-  sprintf(data,"DAC code, output current [A] %s\r\n");
+  sprintf(data,"DAC code, output current [A]\r\n");
   Serial.print(data);
   for(unsigned int loopCount=0;loopCount<numCalElements;loopCount++)
   {
@@ -501,7 +501,7 @@ void loop()
           delay(100);
           inByte=Serial.read();
         }
-        if(inByte>='0' && inByte<'9')
+        if(inByte>='0' && inByte<='9')
         {
           float ampere=inByte-'0';
           if(neg)
@@ -531,6 +531,11 @@ void loop()
             Serial.print(data);
           }
         }
+      }
+      break;
+      case 'x':
+      {
+        writeDACValue(0xFFFF); 
       }
       break;
       case '\n':
