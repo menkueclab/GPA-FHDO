@@ -311,6 +311,12 @@ void initRamp()
 {
   rampLoopCount = 1;
   rampVal = AmpereToDAC(rampMinAmp);
+  char data[100];
+  sprintf(data,"RAMP BEGIN\tchannel %i\r\n",channel+1);
+  Serial.print(data);        
+  sprintf(data,"DAC code\tcalculated current [A]\tADC code\tmeasured current [A]\r\n");
+  Serial.print(data);
+
 }
 
 void rampLoop()
@@ -325,6 +331,8 @@ void rampLoop()
       rampVal+=rampStepSize;
     else
     {
+      sprintf(data,"RAMP END\r\n");
+      Serial.print(data);      
       mode = Mode::idle;
       return;
     }
@@ -351,7 +359,7 @@ void rampLoop()
   dtostrf(ADCToAmpere(ADCVal), 10, 7, str_temp);
   char str_temp2[20];
   dtostrf(DACToAmpere(rampVal), 10, 7, str_temp2);
-  sprintf(data,"0x%04x %s 0x%04x %s\r\n",rampVal,str_temp2,ADCVal,str_temp);
+  sprintf(data,"0x%04x\t%s\t0x%04x\t%s\r\n",rampVal,str_temp2,ADCVal,str_temp);
   Serial.print(data);
 }
 
@@ -363,7 +371,7 @@ void determineGainValues()
 
   calVal[(numCalElements-1)/2]=zeroAmpVal[channel];
 
-  sprintf(data,"DAC code, output current [A]\r\n");
+  sprintf(data,"DAC code\toutput current [A]\r\n");
   Serial.print(data);
   for(unsigned int loopCount=0;loopCount<numCalElements;loopCount++)
   {
@@ -372,7 +380,7 @@ void determineGainValues()
     float ampere = ADCToAmpere(readADC());
     OPAmpVoltageToCurrentFactor[channel][loopCount]=ampere;
     dtostrf(OPAmpVoltageToCurrentFactor[channel][loopCount], 10, 7, str_temp);
-    sprintf(data,"0x%02x%02x %s\r\n",(byte)(calVal[loopCount]>>8),(byte)calVal[loopCount],str_temp);
+    sprintf(data,"0x%02x%02x\t%s\r\n",(byte)(calVal[loopCount]>>8),(byte)calVal[loopCount],str_temp);
     Serial.print(data);
   }
   saveCalibration();
