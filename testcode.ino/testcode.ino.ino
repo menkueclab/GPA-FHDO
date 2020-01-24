@@ -21,8 +21,11 @@
 
 enum class Mode : char{idle,ramp,pulse,findZeroAmp,calGain, read};
 
-// eeprom saved variables
 const unsigned int numCalElements = 33;
+const unsigned int eeprom_layout_version = 2;
+// eeprom saved variables
+float V_ref_25 = 2.5;
+float R_shunt[4] = {0.2,0.2,0.2,0.2};
 unsigned int zeroAmpVal[4] = {0x8000, 0x8000, 0x8000, 0x8000};
 float OPAmpVoltageToCurrentFactor[4][numCalElements];
 unsigned char channel=3;
@@ -47,11 +50,24 @@ const unsigned int pulseOnCycles = 2;
 
 void loadCalibration()
 {
-  unsigned int addr = 0x10;
+  unsigned int addr = 0x00;
+  unsigned int layout_version=0;
+  EEPROM.get(0x00,mode);  
+  addr+=1;
+  EEPROM.get(0x01,channel);    
+  addr+=1;
+  EEPROM.get(addr,layout_version);
+  if(layout_version != eeprom_layout_version)
+    return;
+  addr+=4;
+  EEPROM.get(addr,V_ref_25);
+  addr=0x10;
   for(unsigned int channel = 0;channel<4;channel++)
   {
     EEPROM.get(addr,zeroAmpVal[channel]);
     addr+=4;
+    EEPROM.get(addr,R_shunt[channel]);
+    addr+=4;    
     for(unsigned int i=0;i<numCalElements;i++)
     {
       EEPROM.get(addr,OPAmpVoltageToCurrentFactor[channel][i]);
@@ -62,11 +78,17 @@ void loadCalibration()
 
 void saveCalibration()
 {
-  unsigned int addr = 0x10;
+  unsigned int addr = 0x02;
+  EEPROM.put(addr,eeprom_layout_version);
+  addr+=4;
+  EEPROM.put(addr,V_ref_25);
+  addr = 0x10;
   for(unsigned int channel = 0;channel<4;channel++)
   {
     EEPROM.put(addr,zeroAmpVal[channel]);
     addr+=4;
+    EEPROM.put(addr,R_shunt[channel]);
+    addr+=4;    
     for(unsigned int i=0;i<numCalElements;i++)
     {
       EEPROM.put(addr,OPAmpVoltageToCurrentFactor[channel][i]);
@@ -169,8 +191,7 @@ void setup()
   initADC();
   initDAC();
  
-  EEPROM.get(0x00,mode);  
-  EEPROM.get(0x01,channel);  
+
   loadCalibration();
 
   if(channel<0 || channel >3)
@@ -184,9 +205,7 @@ float ADCToVolt(const unsigned int val)
 
 float ADCToAmpere(const unsigned int val)
 {
-  const float maxVoltage=1.25*4.096;
-  float resistance=0.2; // 200 mOhms
-  return (ADCToVolt(val)-2.5)/resistance;
+  return (ADCToVolt(val)-V_ref_25)/R_shunt[channel];
 }
 
 float DACToVolt(const unsigned int val)
@@ -370,7 +389,8 @@ void determineGainValues()
   byte dataToSend[4];
 
   calVal[(numCalElements-1)/2]=zeroAmpVal[channel];
-
+  sprintf(data,"CAL BEGIN\tchannel %i\r\n",channel+1);
+  Serial.print(data);  
   sprintf(data,"DAC code\toutput current [A]\r\n");
   Serial.print(data);
   for(unsigned int loopCount=0;loopCount<numCalElements;loopCount++)
@@ -383,6 +403,8 @@ void determineGainValues()
     sprintf(data,"0x%02x%02x\t%s\r\n",(byte)(calVal[loopCount]>>8),(byte)calVal[loopCount],str_temp);
     Serial.print(data);
   }
+  sprintf(data,"CAL END");
+  Serial.print(data);  
   saveCalibration();
   writeDACValue(AmpereToDAC(0));
 }
