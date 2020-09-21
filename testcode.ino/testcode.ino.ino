@@ -25,6 +25,8 @@ const unsigned int numCalElements = 33;
 const unsigned int eeprom_layout_version = 2;
 // eeprom saved variables
 float V_ref_25 = 2.5;
+float gain_ina149[4] = {1,1,1,1};
+float gain_adc[4] = {4.096*1.25,4.096*1.25,4.096*1.25,4.096*1.25};
 float R_shunt[4] = {0.2,0.2,0.2,0.2};
 unsigned int zeroAmpVal[4] = {0x8000, 0x8000, 0x8000, 0x8000};
 float OPAmpVoltageToCurrentFactor[4][numCalElements];
@@ -191,7 +193,6 @@ void setup()
   initADC();
   initDAC();
  
-
   loadCalibration();
 
   if(channel<0 || channel >3)
@@ -200,12 +201,12 @@ void setup()
 
 float ADCToVolt(const unsigned int val)
 {
-  return static_cast<float>(val)/static_cast<float>(0xFFFF)*4.096*1.25;
+  return static_cast<float>(val)/static_cast<float>(0xFFFF)*gain_adc[channel];
 }
 
 float ADCToAmpere(const unsigned int val)
 {
-  return (ADCToVolt(val)-V_ref_25)/R_shunt[channel];
+  return (ADCToVolt(val)-V_ref_25)/gain_ina149[channel]/R_shunt[channel];
 }
 
 float DACToVolt(const unsigned int val)
@@ -461,7 +462,7 @@ void readLoop()
   const unsigned int ADCCode= readADC();
   dtostrf(ADCToAmpere(ADCCode), 10, 7, str_temp);
   char data[100];
-  sprintf(data,"0x%04x %s\r\n",ADCCode,str_temp);  
+  sprintf(data,"0x%04x\t%s\r\n",ADCCode,str_temp);  
   Serial.print(data);
   delay(1);
 }
