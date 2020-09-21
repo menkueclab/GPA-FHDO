@@ -476,7 +476,7 @@ void loop()
     {
       case 'c':
       {
-        delay(100);
+	while (Serial.available() == 0) {}
         inByte=Serial.read();
         if(inByte>'0' && inByte<'5')
         {
@@ -491,6 +491,7 @@ void loop()
       case 'i':
       {
         mode=Mode::idle;
+        Serial.print("i = idle/halt all, f = find zero point, cX = choose channel 1-4\n\rr = ramp, p = pulse, g = calculate gain, \n\rd = read values, sX = set channel to current X, \n\rq = query calibration, w = send DAC word\n\r");
       }
       break;
       case 'r':
@@ -522,13 +523,13 @@ void loop()
       break;      
       case 's':
       {
-        delay(100);
+        while (Serial.available() == 0) {}
         inByte=Serial.read();
         bool neg=false;
         if(inByte=='-')
         {
           neg=true;
-          delay(100);
+          while (Serial.available() == 0) {}
           inByte=Serial.read();
         }
         if(inByte>='0' && inByte<='9')
@@ -568,6 +569,20 @@ void loop()
         writeDACValue(0xFFFF); 
       }
       break;
+      case 'w': // just write a 16b word directly to current DAC channel
+	      Serial.print("enter 16-bit DAC value (4 hex words, 0000 - ffff)\r\n");
+	      char inword[5];
+	      for (int k=0; k<4; ++k) {
+		      while (Serial.available() == 0) {}
+		      inword[k] = Serial.read();
+	      }
+	      inword[4] = 0;
+	      unsigned int dacWord;
+	      sscanf(inword, "%lx", &dacWord);
+	      sprintf(data, "Sending 0x%x to DAC ch %d\r\n", dacWord, channel);
+	      Serial.print(data);
+	      writeDACValue(dacWord);
+	      break;
       case '\n':
       break;
       default:
