@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name GPA_dortmund-eagle-import)(type Legacy)(uri ${KIPRJMOD}/GPA_dortmund-eagle-import.lib)(options "")(descr ""))
+)

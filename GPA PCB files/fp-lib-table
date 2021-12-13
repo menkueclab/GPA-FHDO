@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name GPA_dortmund)(type KiCad)(uri "$(KIPRJMOD)/GPA_dortmund.pretty")(options "")(descr ""))
+)
