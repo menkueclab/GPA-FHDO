@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 3 6
 Title ""
 Date ""
 Rev ""
@@ -70,17 +70,17 @@ Wire Wire Line
 	4600 3100 4600 2800
 Wire Wire Line
 	4600 2800 5000 2800
-Text GLabel 4700 2800 2    70   BiDi ~ 0
+Text GLabel 5000 2800 2    70   BiDi ~ 0
 VCC
 Wire Wire Line
 	8000 3100 8000 3000
 Wire Wire Line
 	8000 3000 8400 3000
-Text GLabel 8100 3000 2    70   BiDi ~ 0
+Text GLabel 8400 3000 2    70   BiDi ~ 0
 VCC
 Wire Wire Line
 	9400 4100 9600 4100
-Text GLabel 9400 4100 2    70   BiDi ~ 0
+Text GLabel 9600 4100 2    70   BiDi ~ 0
 VCC
 Wire Wire Line
 	4200 1300 4400 1300
@@ -99,7 +99,7 @@ Wire Wire Line
 Connection ~ 4400 1300
 Connection ~ 4800 1300
 Connection ~ 5200 1300
-Text GLabel 4200 1300 2    70   BiDi ~ 0
+Text GLabel 4200 1300 0    70   BiDi ~ 0
 VCC
 Wire Wire Line
 	7000 1300 7200 1300
@@ -118,7 +118,7 @@ Wire Wire Line
 Connection ~ 7200 1300
 Connection ~ 7600 1300
 Connection ~ 8000 1300
-Text GLabel 7000 1300 2    70   BiDi ~ 0
+Text GLabel 7000 1300 0    70   BiDi ~ 0
 VCC
 Wire Wire Line
 	4600 4500 4600 4700
@@ -133,8 +133,6 @@ Wire Wire Line
 Wire Wire Line
 	5000 4300 5000 4700
 Connection ~ 5000 4700
-Text GLabel 5300 4700 2    70   BiDi ~ 0
-GND
 Wire Wire Line
 	8000 4500 8000 4700
 Wire Wire Line
@@ -152,8 +150,6 @@ Wire Wire Line
 Wire Wire Line
 	8700 4700 8000 4700
 Connection ~ 7600 4700
-Text GLabel 7200 4700 2    70   BiDi ~ 0
-GND
 Connection ~ 8000 4700
 Wire Wire Line
 	4200 1800 4400 1800
@@ -172,8 +168,6 @@ Wire Wire Line
 Connection ~ 5200 1800
 Connection ~ 4800 1800
 Connection ~ 4400 1800
-Text GLabel 4200 1800 2    70   BiDi ~ 0
-GND
 Wire Wire Line
 	7000 1800 7200 1800
 Wire Wire Line
@@ -191,14 +185,10 @@ Wire Wire Line
 Connection ~ 8000 1800
 Connection ~ 7600 1800
 Connection ~ 7200 1800
-Text GLabel 7000 1800 2    70   BiDi ~ 0
-GND
 Wire Wire Line
 	7100 6000 7200 6000
 Wire Wire Line
 	7200 6000 8300 6000
-Text GLabel 8000 6000 2    70   BiDi ~ 0
-GND
 Connection ~ 7200 6000
 Wire Wire Line
 	5000 2200 4800 2200
@@ -268,7 +258,7 @@ Wire Wire Line
 Connection ~ 8700 4100
 Wire Wire Line
 	2300 4000 1800 4000
-Text GLabel 1800 4000 2    70   BiDi ~ 0
+Text GLabel 1800 4000 0    70   BiDi ~ 0
 REF_2.5V
 Wire Wire Line
 	6300 7000 5600 7000
@@ -279,7 +269,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 6800 4800 6800
 Connection ~ 5600 6800
-Text GLabel 4800 6800 2    70   BiDi ~ 0
+Text GLabel 4800 6800 0    70   BiDi ~ 0
 REF_2.5V
 Wire Wire Line
 	6900 6000 6900 5700
@@ -287,16 +277,16 @@ Wire Wire Line
 	6900 5700 6400 5700
 Wire Wire Line
 	7200 5700 6900 5700
-Text GLabel 6400 5700 2    70   BiDi ~ 0
+Text GLabel 6400 5700 0    70   BiDi ~ 0
 12V
 Connection ~ 6900 5700
 Wire Wire Line
 	7800 3200 7100 3200
-Text GLabel 7100 3200 2    70   BiDi ~ 0
+Text GLabel 7100 3200 0    70   BiDi ~ 0
 FAULT_OUT_0_1
 Wire Wire Line
 	4800 3200 5400 3200
-Text GLabel 4800 3200 2    70   BiDi ~ 0
+Text GLabel 5400 3200 2    70   BiDi ~ 0
 FAULT_OUT_0_0
 Wire Wire Line
 	5800 5500 8800 5500
@@ -338,11 +328,11 @@ Text Label 7400 5500 0    70   ~ 0
 PUSH_0_
 Wire Wire Line
 	2300 3600 1800 3600
-Text GLabel 1800 3600 2    70   BiDi ~ 0
+Text GLabel 1800 3600 0    70   BiDi ~ 0
 DAC_OUT_3
 Wire Wire Line
 	7600 6700 8300 6700
-Text GLabel 7600 6700 2    70   BiDi ~ 0
+Text GLabel 8300 6700 2    70   BiDi ~ 0
 V_CURRENT_3
 $Comp
 L GPA_dortmund-eagle-import:OPA549_KV_11TO-220_11 U11
@@ -350,8 +340,8 @@ U 1 1 6BED38E3
 P 4700 3800
 AR Path="/6BED38E3" Ref="U11"  Part="1" 
 AR Path="/61AB9CEF/6BED38E3" Ref="U11"  Part="1" 
-F 0 "U11" H 5014 4059 69  0000 L BNN
-F 1 "OPA549_KV_11TO-220_11" H 4989 3959 69  0000 L BNN
+F 0 "U11" H 4550 3850 69  0000 L BNN
+F 1 "OPA549" H 4550 3750 69  0000 L BNN
 F 2 "GPA_dortmund:TA11B" H 4700 3800 50  0001 C CNN
 F 3 "" H 4700 3800 50  0001 C CNN
 	1    4700 3800
@@ -363,8 +353,8 @@ U 1 1 6D2AEAA6
 P 7900 3800
 AR Path="/6D2AEAA6" Ref="U12"  Part="1" 
 AR Path="/61AB9CEF/6D2AEAA6" Ref="U12"  Part="1" 
-F 0 "U12" H 8814 4059 69  0000 L BNN
-F 1 "OPA549_KV_11TO-220_11" H 7589 3959 69  0000 L BNN
+F 0 "U12" H 7900 3800 69  0000 L BNN
+F 1 "OPA549" H 7700 3700 69  0000 L BNN
 F 2 "GPA_dortmund:TA11B" H 7900 3800 50  0001 C CNN
 F 3 "" H 7900 3800 50  0001 C CNN
 	1    7900 3800
@@ -721,4 +711,70 @@ F 3 "" H 6200 1500 50  0001 C CNN
 	1    6200 1500
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61BC4EC3
+P 8300 6000
+AR Path="/61AB9A1E/61BC4EC3" Ref="#PWR?"  Part="1" 
+AR Path="/61AB9CEF/61BC4EC3" Ref="#PWR0123"  Part="1" 
+F 0 "#PWR0123" H 8300 5750 50  0001 C CNN
+F 1 "GND" H 8305 5827 50  0000 C CNN
+F 2 "" H 8300 6000 50  0001 C CNN
+F 3 "" H 8300 6000 50  0001 C CNN
+	1    8300 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61BCE2B2
+P 7100 4700
+AR Path="/61AB9A1E/61BCE2B2" Ref="#PWR?"  Part="1" 
+AR Path="/61AB9CEF/61BCE2B2" Ref="#PWR0124"  Part="1" 
+F 0 "#PWR0124" H 7100 4450 50  0001 C CNN
+F 1 "GND" H 7105 4527 50  0000 C CNN
+F 2 "" H 7100 4700 50  0001 C CNN
+F 3 "" H 7100 4700 50  0001 C CNN
+	1    7100 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61BD761A
+P 5600 4700
+AR Path="/61AB9A1E/61BD761A" Ref="#PWR?"  Part="1" 
+AR Path="/61AB9CEF/61BD761A" Ref="#PWR0125"  Part="1" 
+F 0 "#PWR0125" H 5600 4450 50  0001 C CNN
+F 1 "GND" H 5605 4527 50  0000 C CNN
+F 2 "" H 5600 4700 50  0001 C CNN
+F 3 "" H 5600 4700 50  0001 C CNN
+	1    5600 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61BE098E
+P 4200 1800
+AR Path="/61AB9A1E/61BE098E" Ref="#PWR?"  Part="1" 
+AR Path="/61AB9CEF/61BE098E" Ref="#PWR0126"  Part="1" 
+F 0 "#PWR0126" H 4200 1550 50  0001 C CNN
+F 1 "GND" H 4205 1627 50  0000 C CNN
+F 2 "" H 4200 1800 50  0001 C CNN
+F 3 "" H 4200 1800 50  0001 C CNN
+	1    4200 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61BE9C7D
+P 7000 1800
+AR Path="/61AB9A1E/61BE9C7D" Ref="#PWR?"  Part="1" 
+AR Path="/61AB9CEF/61BE9C7D" Ref="#PWR0127"  Part="1" 
+F 0 "#PWR0127" H 7000 1550 50  0001 C CNN
+F 1 "GND" H 7005 1627 50  0000 C CNN
+F 2 "" H 7000 1800 50  0001 C CNN
+F 3 "" H 7000 1800 50  0001 C CNN
+	1    7000 1800
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6600 4300
 $EndSCHEMATC
