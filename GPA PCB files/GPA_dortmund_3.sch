@@ -161,34 +161,17 @@ VCC
 Wire Wire Line
 	4600 4500 4600 4700
 Wire Wire Line
-	4600 4700 4800 4700
-Wire Wire Line
 	5600 4700 5000 4700
-Wire Wire Line
-	5000 4700 4800 4700
-Wire Wire Line
-	4800 4700 4800 4400
 Wire Wire Line
 	5000 4300 5000 4700
 Connection ~ 5000 4700
 Wire Wire Line
-	8000 4500 8000 4700
-Wire Wire Line
-	8000 4700 7800 4700
-Wire Wire Line
 	7100 4700 7600 4700
-Wire Wire Line
-	7600 4700 7800 4700
-Wire Wire Line
-	7800 4700 7800 4400
 Wire Wire Line
 	7600 4300 7600 4700
 Wire Wire Line
 	8700 4500 8700 4700
-Wire Wire Line
-	8700 4700 8000 4700
 Connection ~ 7600 4700
-Connection ~ 8000 4700
 Wire Wire Line
 	4200 1800 4400 1800
 Wire Wire Line
@@ -226,7 +209,7 @@ Connection ~ 7200 1800
 Wire Wire Line
 	7100 6000 7200 6000
 Wire Wire Line
-	7200 6000 8300 6000
+	7200 6000 7900 6000
 Connection ~ 7200 6000
 Wire Wire Line
 	5000 2200 4800 2200
@@ -333,7 +316,7 @@ Wire Wire Line
 Text GLabel 8300 6700 2    70   BiDi ~ 0
 V_CURRENT_2
 $Comp
-L GPA_dortmund-eagle-import:OPA549_KV_11TO-220_11 U8
+L GPA_dortmund-rescue:OPA549_KV_11TO-220_11-GPA_dortmund-eagle-import U8
 U 1 1 CE704963
 P 4700 3800
 AR Path="/CE704963" Ref="U8"  Part="1" 
@@ -346,7 +329,7 @@ F 3 "" H 4700 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GPA_dortmund-eagle-import:OPA549_KV_11TO-220_11 U9
+L GPA_dortmund-rescue:OPA549_KV_11TO-220_11-GPA_dortmund-eagle-import U9
 U 1 1 D56F332C
 P 7900 3800
 AR Path="/D56F332C" Ref="U9"  Part="1" 
@@ -764,14 +747,14 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 61DC4B54
-P 8300 6000
+P 7900 6000
 AR Path="/61ABA20B/61DC4B54" Ref="#PWR?"  Part="1" 
 AR Path="/61AB9EA3/61DC4B54" Ref="#PWR0143"  Part="1" 
-F 0 "#PWR0143" H 8300 5750 50  0001 C CNN
-F 1 "GND" H 8305 5827 50  0000 C CNN
-F 2 "" H 8300 6000 50  0001 C CNN
-F 3 "" H 8300 6000 50  0001 C CNN
-	1    8300 6000
+F 0 "#PWR0143" H 7900 5750 50  0001 C CNN
+F 1 "GND" H 7905 5827 50  0000 C CNN
+F 2 "" H 7900 6000 50  0001 C CNN
+F 3 "" H 7900 6000 50  0001 C CNN
+	1    7900 6000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -786,4 +769,23 @@ F 3 "" H 6400 5700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 6600 4300
+Wire Wire Line
+	4600 4700 4800 4700
+Wire Wire Line
+	4800 4400 4800 4700
+Connection ~ 4800 4700
+Wire Wire Line
+	4800 4700 5000 4700
+Wire Wire Line
+	8000 4500 8000 4700
+Connection ~ 8000 4700
+Wire Wire Line
+	8000 4700 8700 4700
+Wire Wire Line
+	7600 4700 7800 4700
+Wire Wire Line
+	7800 4400 7800 4700
+Connection ~ 7800 4700
+Wire Wire Line
+	7800 4700 8000 4700
 $EndSCHEMATC

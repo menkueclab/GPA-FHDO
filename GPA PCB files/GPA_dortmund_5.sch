@@ -333,7 +333,7 @@ Wire Wire Line
 Text GLabel 8300 6700 2    70   BiDi ~ 0
 V_CURRENT_0
 $Comp
-L GPA_dortmund-eagle-import:OPA549_KV_11TO-220_11 U23
+L GPA_dortmund-rescue:OPA549_KV_11TO-220_11-GPA_dortmund-eagle-import U23
 U 1 1 63F53A2D
 P 4700 3800
 AR Path="/63F53A2D" Ref="U23"  Part="1" 
@@ -346,7 +346,7 @@ F 3 "" H 4700 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GPA_dortmund-eagle-import:OPA549_KV_11TO-220_11 U24
+L GPA_dortmund-rescue:OPA549_KV_11TO-220_11-GPA_dortmund-eagle-import U24
 U 1 1 B0DEE33C
 P 7900 3800
 AR Path="/B0DEE33C" Ref="U24"  Part="1" 

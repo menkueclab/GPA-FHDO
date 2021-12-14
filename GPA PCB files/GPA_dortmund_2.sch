@@ -72,11 +72,7 @@ Wire Wire Line
 	4600 2800 5000 2800
 Text GLabel 5000 2800 2    70   BiDi ~ 0
 VCC
-Wire Wire Line
-	8000 3100 8000 3000
-Wire Wire Line
-	8000 3000 8400 3000
-Text GLabel 8400 3000 2    70   BiDi ~ 0
+Text GLabel 8200 3000 2    70   BiDi ~ 0
 VCC
 Wire Wire Line
 	9400 4100 9600 4100
@@ -188,7 +184,7 @@ Connection ~ 7200 1800
 Wire Wire Line
 	7100 6000 7200 6000
 Wire Wire Line
-	7200 6000 8300 6000
+	7200 6000 8000 6000
 Connection ~ 7200 6000
 Wire Wire Line
 	5000 2200 4800 2200
@@ -277,16 +273,14 @@ Wire Wire Line
 	6900 5700 6400 5700
 Wire Wire Line
 	7200 5700 6900 5700
-Text GLabel 6400 5700 0    70   BiDi ~ 0
-12V
 Connection ~ 6900 5700
 Wire Wire Line
-	7800 3200 7100 3200
-Text GLabel 7100 3200 0    70   BiDi ~ 0
+	7800 3200 7700 3200
+Text GLabel 7700 3200 0    70   BiDi ~ 0
 FAULT_OUT_0_1
 Wire Wire Line
-	4800 3200 5400 3200
-Text GLabel 5400 3200 2    70   BiDi ~ 0
+	4800 3200 4850 3200
+Text GLabel 4850 3200 2    70   BiDi ~ 0
 FAULT_OUT_0_0
 Wire Wire Line
 	5800 5500 8800 5500
@@ -335,7 +329,7 @@ Wire Wire Line
 Text GLabel 8300 6700 2    70   BiDi ~ 0
 V_CURRENT_3
 $Comp
-L GPA_dortmund-eagle-import:OPA549_KV_11TO-220_11 U11
+L GPA_dortmund-rescue:OPA549_KV_11TO-220_11-GPA_dortmund-eagle-import U11
 U 1 1 6BED38E3
 P 4700 3800
 AR Path="/6BED38E3" Ref="U11"  Part="1" 
@@ -348,7 +342,7 @@ F 3 "" H 4700 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GPA_dortmund-eagle-import:OPA549_KV_11TO-220_11 U12
+L GPA_dortmund-rescue:OPA549_KV_11TO-220_11-GPA_dortmund-eagle-import U12
 U 1 1 6D2AEAA6
 P 7900 3800
 AR Path="/6D2AEAA6" Ref="U12"  Part="1" 
@@ -714,14 +708,14 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 61BC4EC3
-P 8300 6000
+P 8000 6000
 AR Path="/61AB9A1E/61BC4EC3" Ref="#PWR?"  Part="1" 
 AR Path="/61AB9CEF/61BC4EC3" Ref="#PWR0123"  Part="1" 
-F 0 "#PWR0123" H 8300 5750 50  0001 C CNN
-F 1 "GND" H 8305 5827 50  0000 C CNN
-F 2 "" H 8300 6000 50  0001 C CNN
-F 3 "" H 8300 6000 50  0001 C CNN
-	1    8300 6000
+F 0 "#PWR0123" H 8000 5750 50  0001 C CNN
+F 1 "GND" H 8005 5827 50  0000 C CNN
+F 2 "" H 8000 6000 50  0001 C CNN
+F 3 "" H 8000 6000 50  0001 C CNN
+	1    8000 6000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -777,4 +771,19 @@ F 3 "" H 7000 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 6600 4300
+Wire Wire Line
+	8000 3100 8000 3000
+Wire Wire Line
+	8000 3000 8200 3000
+$Comp
+L power:+12V #PWR0146
+U 1 1 61C7D84C
+P 6400 5700
+F 0 "#PWR0146" H 6400 5550 50  0001 C CNN
+F 1 "+12V" H 6415 5873 50  0000 C CNN
+F 2 "" H 6400 5700 50  0001 C CNN
+F 3 "" H 6400 5700 50  0001 C CNN
+	1    6400 5700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
