@@ -21,7 +21,7 @@
 
 enum class Mode : char{idle,ramp,pulse,findZeroAmp,calGain, read};
 
-const unsigned int numCalElements = 33;
+#define numCalElements  33 // 0xffff/(numCalElements - 1) should be  an integer
 const unsigned int eeprom_layout_version = 2;
 // eeprom saved variables
 float V_ref_25 = 2.5;
@@ -39,8 +39,25 @@ const byte SPImode = SPI_MODE1;
 //unsigned int calVal[]={0x0000, 0x8000, 0xFFFF};
 //unsigned int calVal[]={0x5000, 0x6800, 0x8000, 0x9800, 0xB000};
 //unsigned int calVal[numCalElements]={0x0000, 0x1000, 0x2000, 0x3000, 0x4000, 0x5000, 0x6000, 0x7000, 0x8000, 0x9000, 0xA000, 0xB000, 0xC000, 0xD000,0xE000, 0xF000,0xFFFF};
-unsigned int calVal[numCalElements]={0x0000, 0x0800, 0x1000, 0x1800, 0x2000, 0x2800, 0x3000, 0x3800, 0x4000, 0x4800, 0x5000, 0x5800, 0x6000, 0x6800, 0x7000, 0x7800, 0x8000,
-  0x8800, 0x9000, 0x9800, 0xA000, 0xA800, 0xB000, 0xB800, 0xC000, 0xC800, 0xD000,0xD800, 0xE000, 0xE800, 0xF000, 0xF800, 0xFFFF};
+//unsigned int calVal[numCalElements]={0x0000, 0x0800, 0x1000, 0x1800, 0x2000, 0x2800, 0x3000, 0x3800, 0x4000, 0x4800, 0x5000, 0x5800, 0x6000, 0x6800, 0x7000, 0x7800, 0x8000,
+//  0x8800, 0x9000, 0x9800, 0xA000, 0xA800, 0xB000, 0xB800, 0xC000, 0xC800, 0xD000,0xD800, 0xE000, 0xE800, 0xF000, 0xF800, 0xFFFF};
+volatile unsigned int calVal[numCalElements+1];
+void generateCalValArray()
+{
+  unsigned int stepSize = (unsigned int)0xFFFF / (numCalElements-1) + 1;
+  unsigned long dacCode = 0;
+  char data[100];
+  for(unsigned int index = 0; index < numCalElements; index++)
+  {
+    calVal[index] = dacCode;
+    sprintf(data,"dacCode[%i] = 0x%04x\r\n",index,calVal[index]);
+    Serial.print(data);
+    if (dacCode + stepSize >= 0xFFFF)
+      dacCode = 0xFFFF;
+    else
+      dacCode += stepSize;
+  }
+}
 const float rampMinAmp = -2.0;
 const float rampMaxAmp = 2.0;
 const float rampStepSize = 1;
@@ -54,9 +71,9 @@ void loadCalibration()
 {
   unsigned int addr = 0x00;
   unsigned int layout_version=0;
-  EEPROM.get(0x00,mode);  
+  EEPROM.get(0x00,mode);
   addr+=1;
-  EEPROM.get(0x01,channel);    
+  EEPROM.get(0x01,channel);
   addr+=1;
   EEPROM.get(addr,layout_version);
   if(layout_version != eeprom_layout_version)
@@ -69,11 +86,11 @@ void loadCalibration()
     EEPROM.get(addr,zeroAmpVal[channel]);
     addr+=4;
     EEPROM.get(addr,R_shunt[channel]);
-    addr+=4;    
+    addr+=4;
     for(unsigned int i=0;i<numCalElements;i++)
     {
       EEPROM.get(addr,OPAmpVoltageToCurrentFactor[channel][i]);
-      addr+=4;      
+      addr+=4;
     }
   }
 }
@@ -90,11 +107,11 @@ void saveCalibration()
     EEPROM.put(addr,zeroAmpVal[channel]);
     addr+=4;
     EEPROM.put(addr,R_shunt[channel]);
-    addr+=4;    
+    addr+=4;
     for(unsigned int i=0;i<numCalElements;i++)
     {
       EEPROM.put(addr,OPAmpVoltageToCurrentFactor[channel][i]);
-      addr+=4;      
+      addr+=4;
     }
   }
 }
@@ -105,9 +122,9 @@ void initDAC()
   dataToSend[0]=0x03; // config register
   dataToSend[1]=0x01; // disable internal reference
   dataToSend[2]=0x00;
-  digitalWrite(SS,LOW); 
+  digitalWrite(SS,LOW);
   SPI.transfer(dataToSend,3);
-  digitalWrite(SS,HIGH);   
+  digitalWrite(SS,HIGH);
 }
 
 void initADC(){
@@ -118,53 +135,53 @@ void initADC(){
   dataToSend[2]=0x00;
   dataToSend[3]=0x00;
 
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   delay(10);
   SPI.transfer(dataToSend,4);
   delay(10);
-  digitalWrite(SS,LOW); 
+  digitalWrite(SS,LOW);
   delay(10);
 
   dataToSend[0]=(0x08 << 1) | 1; // set channel 3 input range
   dataToSend[1]=0x06;
   dataToSend[2]=0x00;
 
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   delay(10);
   SPI.transfer(dataToSend,3);
   delay(10);
-  digitalWrite(SS,LOW);   
+  digitalWrite(SS,LOW);
 
   dataToSend[0]=(0x07 << 1) | 1; // set channel 2 input range
   dataToSend[1]=0x06;
   dataToSend[2]=0x00;
 
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   delay(10);
   SPI.transfer(dataToSend,3);
   delay(10);
-  digitalWrite(SS,LOW);   
+  digitalWrite(SS,LOW);
 
   dataToSend[0]=(0x06 << 1) | 1; // set channel 1 input range
   dataToSend[1]=0x06;
   dataToSend[2]=0x00;
 
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   delay(10);
   SPI.transfer(dataToSend,3);
   delay(10);
-  digitalWrite(SS,LOW);   
+  digitalWrite(SS,LOW);
 
 
   dataToSend[0]=(0x05 << 1) | 1; // set channel 0 input range
   dataToSend[1]=0x06;
   dataToSend[2]=0x00;
 
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   delay(10);
   SPI.transfer(dataToSend,3);
   delay(10);
-  digitalWrite(SS,LOW);   
+  digitalWrite(SS,LOW);
 
   /*
   // not necessary, is already default
@@ -172,31 +189,32 @@ void initADC(){
   dataToSend[1]=0x00;
   dataToSend[2]=0x00;
 
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   delay(10);
   SPI.transfer(dataToSend,3);
   delay(10);
-  digitalWrite(SS,LOW);  
+  digitalWrite(SS,LOW);
   */
 }
 
 
-void setup() 
+void setup()
 {
   Serial.begin(115200);
   Serial.setTimeout(100);
-  digitalWrite(SS, LOW);  
+  digitalWrite(SS, LOW);
   SPI.begin (); //Verbindung starten
   SPI.setClockDivider(SPI_CLOCK_DIV8); //Geschwindigkeit verlangsamen
   SPI.setBitOrder(MSBFIRST);
   SPI.setDataMode(SPImode);
   initADC();
   initDAC();
- 
+
   loadCalibration();
 
   if(channel<0 || channel >3)
     channel=3;
+  generateCalValArray();
 }
 
 float ADCToVolt(const unsigned int val)
@@ -228,7 +246,7 @@ float DACToAmpere(const unsigned int val)
       rightIndex=n;
       break;
     }
-  }  
+  }
   if(leftIndex==rightIndex)
     return OPAmpVoltageToCurrentFactor[channel][leftIndex];
   return (OPAmpVoltageToCurrentFactor[channel][rightIndex]-OPAmpVoltageToCurrentFactor[channel][leftIndex])/(calVal[rightIndex]-calVal[leftIndex])
@@ -249,7 +267,7 @@ unsigned int AmpereToDAC(const float ampere)
       rightIndex=n;
       break;
     }
-  }  
+  }
   if(leftIndex==rightIndex)
     return calVal[leftIndex];
   return (calVal[rightIndex]-calVal[leftIndex])/(OPAmpVoltageToCurrentFactor[channel][rightIndex]-OPAmpVoltageToCurrentFactor[channel][leftIndex])
@@ -259,13 +277,13 @@ unsigned int AmpereToDAC(const float ampere)
 void writeDACValue(const unsigned int val)
 {
   byte dataToSend[4];
-  dataToSend[0]=0x08 + channel; 
-  dataToSend[1]=static_cast<byte>(val>>8); 
+  dataToSend[0]=0x08 + channel;
+  dataToSend[1]=static_cast<byte>(val>>8);
   dataToSend[2]=static_cast<byte>(val);
   dataToSend[3]=0;
-  digitalWrite(SS,LOW); 
+  digitalWrite(SS,LOW);
   SPI.transfer(dataToSend,3);
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   //char data[100];
   //sprintf(data,"write %04x\n", val);
   //Serial.print(data);
@@ -278,23 +296,23 @@ unsigned int readADC()
   dataToSend[1]=0x00;
   dataToSend[2]=0x00;
   dataToSend[3]=0x00;
-  digitalWrite(SS,HIGH); 
+  digitalWrite(SS,HIGH);
   SPI.transfer(dataToSend,4);
-  digitalWrite(SS,LOW); 
+  digitalWrite(SS,LOW);
   dataToSend[0]=0xC0;
   dataToSend[1]=0x00;
   dataToSend[2]=0x00;
-  dataToSend[3]=0x00;  
-  digitalWrite(SS,HIGH); 
+  dataToSend[3]=0x00;
+  digitalWrite(SS,HIGH);
   SPI.transfer(dataToSend,4);
-  digitalWrite(SS,LOW);  
-  return static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]);  
+  digitalWrite(SS,LOW);
+  return static_cast<unsigned int>(dataToSend[2])<<8 | static_cast<unsigned int>(dataToSend[3]);
 }
 
 void pulseLoop()
 {
   char data[100];
-  
+
   static int loopCount = 0;
   const int maxLoopCount = 100;
 
@@ -305,7 +323,7 @@ void pulseLoop()
     loopCount = 0;
   else
     loopCount++;
-    
+
   if(loopCount <pulseOnCycles)
     writeDACValue(Vhigh);
   else
@@ -333,7 +351,7 @@ void initRamp()
   rampVal = AmpereToDAC(rampMinAmp);
   char data[100];
   sprintf(data,"RAMP BEGIN\tchannel %i\r\n",channel+1);
-  Serial.print(data);        
+  Serial.print(data);
   sprintf(data,"DAC code\tcalculated current [A]\tADC code\tmeasured current [A]\r\n");
   Serial.print(data);
 
@@ -352,7 +370,7 @@ void rampLoop()
     else
     {
       sprintf(data,"RAMP END\r\n");
-      Serial.print(data);      
+      Serial.print(data);
       mode = Mode::idle;
       return;
     }
@@ -368,7 +386,7 @@ void rampLoop()
       /* 4 is mininum width, 2 is precision; float value is copied onto str_temp*/
       dtostrf(DACToAmpere(rampVal), 7, 4, str_temp);
       sprintf(data,"*** set current to %s A ***\r\n",str_temp);
-      Serial.print(data);    
+      Serial.print(data);
     }
     writeDACValue(rampVal);
   }
@@ -391,13 +409,13 @@ void determineGainValues()
 
   calVal[(numCalElements-1)/2]=zeroAmpVal[channel];
   sprintf(data,"CAL BEGIN\tchannel %i\r\n",channel+1);
-  Serial.print(data);  
+  Serial.print(data);
   sprintf(data,"DAC code\toutput current [A]\r\n");
   Serial.print(data);
   for(unsigned int loopCount=0;loopCount<numCalElements;loopCount++)
   {
     writeDACValue(calVal[loopCount]);
-    delayMicroseconds(100);
+    delayMicroseconds(500);
     float ampere = ADCToAmpere(readADC());
     OPAmpVoltageToCurrentFactor[channel][loopCount]=ampere;
     dtostrf(OPAmpVoltageToCurrentFactor[channel][loopCount], 10, 7, str_temp);
@@ -405,7 +423,7 @@ void determineGainValues()
     Serial.print(data);
   }
   sprintf(data,"CAL END");
-  Serial.print(data);  
+  Serial.print(data);
   saveCalibration();
   writeDACValue(AmpereToDAC(0));
 }
@@ -413,7 +431,7 @@ void determineGainValues()
 
 static unsigned int currentDACCode = 0x8000;
 static unsigned int lastDACCode=0;
-  
+
 void initFindZeroAmpVoltage()
 {
   currentDACCode = 0x8000;
@@ -428,12 +446,12 @@ void findZeroAmpVoltageLoop()
   char data[100];
   char str_temp2[20];
   char str_temp[20];
-  
-  writeDACValue(currentDACCode);    
+
+  writeDACValue(currentDACCode);
   delay(1);
   const float amp = ADCToAmpere(readADC());
   const float dacVolt = DACToVolt(currentDACCode);
-  dtostrf(dacVolt, 10, 7, str_temp2);      
+  dtostrf(dacVolt, 10, 7, str_temp2);
   dtostrf(amp, 10, 7, str_temp);
   sprintf(data,"0x%04x %s V -> %s A\r\n",currentDACCode,str_temp2,str_temp);
   Serial.print(data);
@@ -449,7 +467,7 @@ void findZeroAmpVoltageLoop()
     zeroAmpVal[channel] = currentDACCode;
     EEPROM.put(0x00+((channel+1)<<4),zeroAmpVal[channel]);
     Serial.print("Zero current voltage found\r\n");
-    saveCalibration();  
+    saveCalibration();
     mode=Mode::idle;
   }
   else
@@ -462,12 +480,12 @@ void readLoop()
   const unsigned int ADCCode= readADC();
   dtostrf(ADCToAmpere(ADCCode), 10, 7, str_temp);
   char data[100];
-  sprintf(data,"0x%04x\t%s\r\n",ADCCode,str_temp);  
+  sprintf(data,"0x%04x\t%s\r\n",ADCCode,str_temp);
   Serial.print(data);
   delay(1);
 }
 
-void loop() 
+void loop()
 {
   if(Serial.available() > 0)
   {
@@ -482,10 +500,10 @@ void loop()
         if(inByte>'0' && inByte<'5')
         {
           channel=inByte-'1';
-          EEPROM.write(0x01,channel); 
+          EEPROM.write(0x01,channel);
           char data[50];
           sprintf(data,"Changed active channel to %d\r\n",channel+1);
-          Serial.print(data);    
+          Serial.print(data);
         }
       }
       break;
@@ -521,7 +539,7 @@ void loop()
       {
         mode=Mode::read;
       }
-      break;      
+      break;
       case 's':
       {
         while (Serial.available() == 0) {}
@@ -541,15 +559,15 @@ void loop()
           writeDACValue(AmpereToDAC(ampere));
           char data[50];
           sprintf(data,"Set channel %d to %d A\r\n",channel+1,(int)ampere);
-          Serial.print(data);    
+          Serial.print(data);
         }
       }
-      break;      
+      break;
       case 'q':
       {
         char data[50];
         sprintf(data,"active channel %d\r\n",channel+1);
-        Serial.print(data); 
+        Serial.print(data);
         for(unsigned char n=0;n<4;n++)
         {
           char str_temp[20];
@@ -567,7 +585,7 @@ void loop()
       break;
       case 'x':
       {
-        writeDACValue(0xFFFF); 
+        writeDACValue(0xFFFF);
       }
       break;
       case 'w': // just write a 16b word directly to current DAC channel
@@ -587,13 +605,13 @@ void loop()
       case '\n':
       break;
       default:
-      Serial.print("unknown command\r\n");  
-      delay(100);      
+      Serial.print("unknown command\r\n");
+      delay(100);
       break;
     }
-    EEPROM.put(0x00,mode);  
+    EEPROM.put(0x00,mode);
   }
-  
+
   switch(mode)
   {
     case Mode::idle:
@@ -603,7 +621,7 @@ void loop()
       rampLoop();
       if(rampCyclePause>0)
       {
-        writeDACValue(AmpereToDAC(0));      
+        writeDACValue(AmpereToDAC(0));
         delay(rampCyclePause);
       }
     }
@@ -620,17 +638,17 @@ void loop()
     break;
     case Mode::read:
     {
-      readLoop();    
+      readLoop();
     }
     break;
     case Mode::calGain:
     {
-      determineGainValues();    
+      determineGainValues();
       mode=Mode::idle;
     }
-    break;    
+    break;
     default:
-    Serial.print("invalid mode\r\n");  
+    Serial.print("invalid mode\r\n");
     delay(100);
     break;
   }
