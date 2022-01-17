@@ -1,0 +1,739 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid 27d56953-c620-4d5b-9c1c-e48bc3d9684a)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 25.4 25.4) (size 12.7 3.81) (fields_autoplaced)
+    (stroke (width 0) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 00000000-0000-0000-0000-000061ab9a1e)
+    (property "Sheet name" "DAC + ADC" (id 0) (at 25.4 24.6884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "GPA_dortmund_1.kicad_sch" (id 1) (at 25.4 29.7946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet (at 76.2 25.4) (size 12.7 3.81) (fields_autoplaced)
+    (stroke (width 0) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 00000000-0000-0000-0000-000061ab9cef)
+    (property "Sheet name" "PA3" (id 0) (at 76.2 24.6884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "GPA_dortmund_2.kicad_sch" (id 1) (at 76.2 29.7946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet (at 127 25.4) (size 12.7 3.81) (fields_autoplaced)
+    (stroke (width 0) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 00000000-0000-0000-0000-000061ab9ea3)
+    (property "Sheet name" "PA2" (id 0) (at 127 24.6884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "GPA_dortmund_3.kicad_sch" (id 1) (at 127 29.7946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet (at 177.8 25.4) (size 12.7 3.81) (fields_autoplaced)
+    (stroke (width 0) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 00000000-0000-0000-0000-000061aba057)
+    (property "Sheet name" "PA1" (id 0) (at 177.8 24.6884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "GPA_dortmund_4.kicad_sch" (id 1) (at 177.8 29.7946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet (at 228.6 25.4) (size 12.7 3.81) (fields_autoplaced)
+    (stroke (width 0) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 00000000-0000-0000-0000-000061aba20b)
+    (property "Sheet name" "PA0" (id 0) (at 228.6 24.6884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "GPA_dortmund_5.kicad_sch" (id 1) (at 228.6 29.7946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+    (path "/00000000-0000-0000-0000-000061ab9a1e" (page "2"))
+    (path "/00000000-0000-0000-0000-000061ab9cef" (page "3"))
+    (path "/00000000-0000-0000-0000-000061ab9ea3" (page "4"))
+    (path "/00000000-0000-0000-0000-000061aba057" (page "5"))
+    (path "/00000000-0000-0000-0000-000061aba20b" (page "6"))
+  )
+
+  (symbol_instances
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061de26b7"
+      (reference "#FLG0101") (unit 1) (value "PWR_FLAG") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061baf46c"
+      (reference "#FLG0102") (unit 1) (value "PWR_FLAG") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061c2d75b"
+      (reference "#FLG0103") (unit 1) (value "PWR_FLAG") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061cdc7f3"
+      (reference "#FLG0104") (unit 1) (value "PWR_FLAG") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061c34a9a"
+      (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061c440c8"
+      (reference "#PWR0102") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/6e2b4596-7fba-4efa-8613-e91b14af5dd1"
+      (reference "#PWR0103") (unit 1) (value "+12V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061c8058a"
+      (reference "#PWR0104") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061cbb9e8"
+      (reference "#PWR0105") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061cd90c0"
+      (reference "#PWR0106") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061d31269"
+      (reference "#PWR0107") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061d3ff9d"
+      (reference "#PWR0108") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061d4ec12"
+      (reference "#PWR0109") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061d5d7cb"
+      (reference "#PWR0110") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061d6c3cd"
+      (reference "#PWR0111") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061d7b7e4"
+      (reference "#PWR0112") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061da9706"
+      (reference "#PWR0113") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061dc7fb7"
+      (reference "#PWR0114") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061de6859"
+      (reference "#PWR0115") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061e050f4"
+      (reference "#PWR0116") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/f80bacad-875f-4089-a42d-337a48a28a5c"
+      (reference "#PWR0117") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061e422dd"
+      (reference "#PWR0118") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061e6100f"
+      (reference "#PWR0119") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061e8fb20"
+      (reference "#PWR0120") (unit 1) (value "+12V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061ebefc0"
+      (reference "#PWR0121") (unit 1) (value "+12V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/daed5d14-848b-4ddd-9cfa-ed45bf6646ff"
+      (reference "#PWR0122") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000061bc4ec3"
+      (reference "#PWR0123") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000061bce2b2"
+      (reference "#PWR0124") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000061bd761a"
+      (reference "#PWR0125") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000061be098e"
+      (reference "#PWR0126") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000061be9c7d"
+      (reference "#PWR0127") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000061d3a0fd"
+      (reference "#PWR0128") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000061d3aa69"
+      (reference "#PWR0129") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000061d44618"
+      (reference "#PWR0130") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000061d4defa"
+      (reference "#PWR0131") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000061d578af"
+      (reference "#PWR0132") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000061d6acec"
+      (reference "#PWR0133") (unit 1) (value "+12V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000061d7a99b"
+      (reference "#PWR0134") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000061d7f71b"
+      (reference "#PWR0135") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000061d890eb"
+      (reference "#PWR0136") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000061d97556"
+      (reference "#PWR0137") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000061d9c3be"
+      (reference "#PWR0138") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000061dac81d"
+      (reference "#PWR0139") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000061db1654"
+      (reference "#PWR0140") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000061dbb00e"
+      (reference "#PWR0141") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000061dbfd31"
+      (reference "#PWR0142") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000061dc4b54"
+      (reference "#PWR0143") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000061dc9e6e"
+      (reference "#PWR0144") (unit 1) (value "+12V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000061de10f7"
+      (reference "#PWR0145") (unit 1) (value "GND2") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000061c7d84c"
+      (reference "#PWR0146") (unit 1) (value "+12V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000061c851e4"
+      (reference "#PWR0147") (unit 1) (value "+12V") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/c3701334-af7a-4b80-a2c8-056c9ed7668a"
+      (reference "#PWR0150") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00006868c27d"
+      (reference "C1") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00000cec70cd"
+      (reference "C2") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00004c56f9d5"
+      (reference "C3") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000674c1b16"
+      (reference "C4") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000a35c59bc"
+      (reference "C5") (unit 1) (value "10uF") (footprint "GPA_dortmund:153CLV-1010")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00000cfd014e"
+      (reference "C6") (unit 1) (value "10uF") (footprint "GPA_dortmund:153CLV-1010")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000049f108fa"
+      (reference "C7") (unit 1) (value "10uF") (footprint "GPA_dortmund:153CLV-1010")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000c35d9c21"
+      (reference "C8") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00009153fa9e"
+      (reference "C9") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000e6471815"
+      (reference "C10") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000ce46cd9a"
+      (reference "C17") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000015f8a7ba"
+      (reference "C18") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000093fc45df"
+      (reference "C19") (unit 1) (value "100nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000f44913ed"
+      (reference "C20") (unit 1) (value "22uF") (footprint "GPA_dortmund:CAPT6032N-L")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000a03cf4b5"
+      (reference "C21") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000085440648"
+      (reference "C22") (unit 1) (value "22uF") (footprint "GPA_dortmund:CAPT6032N-L")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000b6b21953"
+      (reference "C23") (unit 1) (value "22uF") (footprint "GPA_dortmund:CAPT6032N-L")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00005a0a058d"
+      (reference "C24") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00007205dfeb"
+      (reference "C25") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000023f321d9"
+      (reference "C26") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000e408d1c4"
+      (reference "C27") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000ab97cb13"
+      (reference "C28") (unit 1) (value "100nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000356c4714"
+      (reference "C30") (unit 1) (value "22uF") (footprint "GPA_dortmund:CAPT6032N-L")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000007ace071"
+      (reference "C31") (unit 1) (value "100nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000f6ba9c03"
+      (reference "C32") (unit 1) (value "100nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000aab53924"
+      (reference "C33") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00003f77b3b9"
+      (reference "C34") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000504c3dcf"
+      (reference "C35") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00009830d053"
+      (reference "C36") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000cf07b5f6"
+      (reference "C37") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00005c8ef826"
+      (reference "C38") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000054f4ee1"
+      (reference "C39") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000ee63e1ac"
+      (reference "C40") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000f03766ed"
+      (reference "C41") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000cb16010a"
+      (reference "C42") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000083028977"
+      (reference "C43") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000022e3a59c"
+      (reference "C44") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000053f833b2"
+      (reference "C45") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00006bd74788"
+      (reference "C46") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000d660c55a"
+      (reference "C47") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00006574af54"
+      (reference "C48") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000f793aec4"
+      (reference "C49") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00009659a8ec"
+      (reference "C50") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000986d593f"
+      (reference "C51") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000cf7df721"
+      (reference "C52") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00004e6e6d0c"
+      (reference "C63") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000014e936d1"
+      (reference "C64") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000045fea43b"
+      (reference "C65") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00009a5cf1f0"
+      (reference "C66") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000cd6aee21"
+      (reference "C67") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000071326b9"
+      (reference "C68") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000d15bb6c1"
+      (reference "C69") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000b1f40be7"
+      (reference "C70") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000e0e23889"
+      (reference "C71") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00003bdceb75"
+      (reference "C72") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000628cc616"
+      (reference "C83") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000086b4ea67"
+      (reference "C84") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000a2c0e8f9"
+      (reference "C85") (unit 1) (value "1nF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00006a4953ee"
+      (reference "C86") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000030049de3"
+      (reference "C87") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00008b9c5828"
+      (reference "C88") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000095bd9754"
+      (reference "C89") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00006358782e"
+      (reference "C90") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000d5a18e50"
+      (reference "C91") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00002e83de4f"
+      (reference "C92") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00007dc8c285"
+      (reference "LED1") (unit 1) (value "LEDSMT1206") (footprint "GPA_dortmund:1206")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000cc2303f6"
+      (reference "R1") (unit 1) (value "20") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00000f3c4881"
+      (reference "R2") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00002a684572"
+      (reference "R3") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00006cc32940"
+      (reference "R15") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000017b3d618"
+      (reference "R16") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00003fdbbfd1"
+      (reference "R17") (unit 1) (value "20") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000368e8eaa"
+      (reference "R18") (unit 1) (value "300") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000f99e3274"
+      (reference "R20") (unit 1) (value "20") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00009e3b34ad"
+      (reference "R21") (unit 1) (value "20") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00002694f2df"
+      (reference "R22") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00002da844de"
+      (reference "R23") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000f0c09788"
+      (reference "R24") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000bebc8c1a"
+      (reference "R25") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000d975fb52"
+      (reference "R26") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000d54f13e9"
+      (reference "R27") (unit 1) (value "10K") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000029f9bcc2"
+      (reference "R28") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000437cf36c"
+      (reference "R29") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00002e51f248"
+      (reference "R30") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00007d6674f8"
+      (reference "R31") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000042b1d1c1"
+      (reference "R32") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000ba402b21"
+      (reference "R33") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000501d9429"
+      (reference "R34") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000006aef954"
+      (reference "R35") (unit 1) (value "200m 25W DPAK") (footprint "GPA_dortmund:PWR163_DPAK")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000d3737123"
+      (reference "R36") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000033b1a60f"
+      (reference "R37") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000bb17c113"
+      (reference "R38") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000041bf8ed4"
+      (reference "R39") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000f99ea41e"
+      (reference "R40") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000237caf77"
+      (reference "R41") (unit 1) (value "10K") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000540b5dc0"
+      (reference "R42") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000da0b1885"
+      (reference "R43") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000f2120479"
+      (reference "R44") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00002587debe"
+      (reference "R45") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000c2181e83"
+      (reference "R46") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00000d75716d"
+      (reference "R47") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00000540dcd4"
+      (reference "R48") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-000016363f15"
+      (reference "R49") (unit 1) (value "200m 25W DPAK") (footprint "GPA_dortmund:PWR163_DPAK")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000b5625cef"
+      (reference "R64") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000bc7610d8"
+      (reference "R65") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000805fc86e"
+      (reference "R66") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000094a58c2a"
+      (reference "R67") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00003d9e63a5"
+      (reference "R68") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00006e2dc1ae"
+      (reference "R69") (unit 1) (value "10K") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000ac81a314"
+      (reference "R70") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000d919ad3f"
+      (reference "R71") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000fb7cadf6"
+      (reference "R72") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00009911fcc1"
+      (reference "R73") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000e0a005a1"
+      (reference "R74") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000e6fc1176"
+      (reference "R75") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00009d4b30ba"
+      (reference "R76") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000062b5f0c0"
+      (reference "R77") (unit 1) (value "200m 25W DPAK") (footprint "GPA_dortmund:PWR163_DPAK")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000028f6ac6c"
+      (reference "R92") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000f4dcf6e0"
+      (reference "R93") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000039937a76"
+      (reference "R94") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00002ea6f3b5"
+      (reference "R95") (unit 1) (value "1K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000d0206ee4"
+      (reference "R96") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000ec3a5f09"
+      (reference "R97") (unit 1) (value "10K") (footprint "GPA_dortmund:M0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000937924bb"
+      (reference "R98") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000731050e6"
+      (reference "R99") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000da519632"
+      (reference "R100") (unit 1) (value "10K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000013b826f7"
+      (reference "R101") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00009f38c263"
+      (reference "R102") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000953f0c0c"
+      (reference "R103") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00002f0bbe01"
+      (reference "R104") (unit 1) (value "2K") (footprint "GPA_dortmund:R0805")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000a2ea2d44"
+      (reference "R105") (unit 1) (value "200m 25W DPAK") (footprint "GPA_dortmund:PWR163_DPAK")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00003e7d897a"
+      (reference "SV2") (unit 1) (value "MA03-1") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000039d8666c"
+      (reference "SV3") (unit 1) (value "ADC Probe Point") (footprint "GPA_dortmund:MA04-2")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000052e1d252"
+      (reference "SV4") (unit 1) (value "MA04-2") (footprint "GPA_dortmund:MA04-2")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/65b3b1c2-226a-4bc1-a54b-d968d7d575ae"
+      (reference "U1") (unit 1) (value "Conn_03x04_Odd_Even") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x04_P2.54mm_Vertical")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/5bd89e67-56e1-48ee-a2d2-50aceaa27ccc"
+      (reference "U1") (unit 2) (value "Conn_03x04_Odd_Even") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00004e0ab7a9"
+      (reference "U2") (unit 1) (value "ADUM4150ARIZ") (footprint "GPA_dortmund:RI_20_1")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/8a01fd04-2ebf-4613-8fc8-70a16c8c2f49"
+      (reference "U3") (unit 1) (value "Conn_03x05_Odd_Even") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x05_P2.54mm_Vertical")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/e9eb0c2c-b1e6-40b5-ab00-0c86b0daae51"
+      (reference "U3") (unit 2) (value "Conn_03x05_Odd_Even") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x05_P2.54mm_Vertical")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000e3998434"
+      (reference "U5") (unit 1) (value "ADS8684A") (footprint "GPA_dortmund:TSSOP38_LONG_PINS")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00000551bdc9"
+      (reference "U6") (unit 1) (value "DAC80504/DAC80508") (footprint "GPA_dortmund:QFN16_LONG_PINS")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00003f614461"
+      (reference "U7") (unit 1) (value "78L12") (footprint "GPA_dortmund:SOIC127P600X144-8")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000ce704963"
+      (reference "U8") (unit 1) (value "OPA549") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000d56f332c"
+      (reference "U9") (unit 1) (value "OPA549") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-000044d3fc8d"
+      (reference "U10") (unit 1) (value "INA149SOIC8") (footprint "GPA_dortmund:SOIC127P600X144-8")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00006bed38e3"
+      (reference "U11") (unit 1) (value "OPA549") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00006d2aeaa6"
+      (reference "U12") (unit 1) (value "OPA549") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000b7180da0"
+      (reference "U13") (unit 1) (value "INA149SOIC8") (footprint "GPA_dortmund:SOIC127P600X144-8")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00003db02967"
+      (reference "U17") (unit 1) (value "OPA549") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000084abba4d"
+      (reference "U18") (unit 1) (value "OPA549") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000596302d7"
+      (reference "U19") (unit 1) (value "INA149SOIC8") (footprint "GPA_dortmund:SOIC127P600X144-8")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00004ad49080"
+      (reference "U20") (unit 1) (value "MC74HC1") (footprint "GPA_dortmund:SOT23-5")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000a18dba62"
+      (reference "U21") (unit 1) (value "780X") (footprint "GPA_dortmund:T03B")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000dbc1e9b6"
+      (reference "U22") (unit 1) (value "REF5025SOIC8") (footprint "GPA_dortmund:SOIC127P600X144-8")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000063f53a2d"
+      (reference "U23") (unit 1) (value "OPA549_KV_11TO-220_11") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000b0dee33c"
+      (reference "U24") (unit 1) (value "OPA549_KV_11TO-220_11") (footprint "GPA_dortmund:TA11B")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000a4a7a47c"
+      (reference "U25") (unit 1) (value "INA149SOIC8") (footprint "GPA_dortmund:SOIC127P600X144-8")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000f458e360"
+      (reference "U100") (unit 1) (value "AAVID_TO220_HEATSINK") (footprint "GPA_dortmund:AAVID_TO220_HEATSINK")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00001de23759"
+      (reference "U101") (unit 1) (value "AAVID_TO220_HEATSINK") (footprint "GPA_dortmund:AAVID_TO220_HEATSINK")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000066d7b8ea"
+      (reference "U102") (unit 1) (value "AAVID_TO220_HEATSINK") (footprint "GPA_dortmund:AAVID_TO220_HEATSINK")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00006da1f5f1"
+      (reference "U103") (unit 1) (value "AAVID_TO220_HEATSINK") (footprint "GPA_dortmund:AAVID_TO220_HEATSINK")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000ee6a8c5b"
+      (reference "X2") (unit 1) (value "MINI-FIT-JR-105569-NA2") (footprint "GPA_dortmund:5569-NA2-10")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000d0efeb30"
+      (reference "X3") (unit 1) (value "MINI-FIT-JR-045569-NA2") (footprint "GPA_dortmund:5569-NA2-04")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000038d8100c"
+      (reference "X4") (unit 1) (value "RJ45") (footprint "GPA_dortmund:RJ45-NO-SHIELD")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00002cac95e3"
+      (reference "X5") (unit 1) (value "MINI-FIT-JR-045569-NA2") (footprint "GPA_dortmund:5569-NA2-04")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000e2351ff5"
+      (reference "X7") (unit 1) (value "MINI-FIT-JR-045569-NA2") (footprint "GPA_dortmund:5569-NA2-04")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00006121001d"
+      (reference "X9") (unit 1) (value "MINI-FIT-JR-045569-NA2") (footprint "GPA_dortmund:5569-NA2-04")
+    )
+  )
+)
