@@ -429,6 +429,18 @@
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00002e83de4f"
       (reference "C92") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
     )
+    (path "/00000000-0000-0000-0000-000061ab9cef/54c69e96-cd8e-4f77-9931-65cd10b5542a"
+      (reference "JP1") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9ea3/eec1faa5-ed2b-41bc-ac34-f37c6dc656cb"
+      (reference "JP2") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
+    )
+    (path "/00000000-0000-0000-0000-000061aba057/2953456e-28b9-4bdd-aed6-43d7e5afea9d"
+      (reference "JP3") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
+    )
+    (path "/00000000-0000-0000-0000-000061aba20b/4ddb00f8-ecc4-4737-b280-80154d5ee2e0"
+      (reference "JP4") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
+    )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00007dc8c285"
       (reference "LED1") (unit 1) (value "LEDSMT1206") (footprint "GPA_dortmund:1206")
     )
@@ -637,19 +649,19 @@
       (reference "SV4") (unit 1) (value "MA04-2") (footprint "GPA_dortmund:MA04-2")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/65b3b1c2-226a-4bc1-a54b-d968d7d575ae"
-      (reference "U1") (unit 1) (value "Conn_03x04_Odd_Even") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x04_P2.54mm_Vertical")
+      (reference "U1") (unit 1) (value "Conn_03x04_GPA-FHDO") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x04_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/5bd89e67-56e1-48ee-a2d2-50aceaa27ccc"
-      (reference "U1") (unit 2) (value "Conn_03x04_Odd_Even") (footprint "")
+      (reference "U1") (unit 2) (value "Conn_03x04_GPA-FHDO") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x04_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00004e0ab7a9"
       (reference "U2") (unit 1) (value "ADUM4150ARIZ") (footprint "GPA_dortmund:RI_20_1")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/8a01fd04-2ebf-4613-8fc8-70a16c8c2f49"
-      (reference "U3") (unit 1) (value "Conn_03x05_Odd_Even") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x05_P2.54mm_Vertical")
+      (reference "U3") (unit 1) (value "Conn_03x05_GPA-FHDO") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x05_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/e9eb0c2c-b1e6-40b5-ab00-0c86b0daae51"
-      (reference "U3") (unit 2) (value "Conn_03x05_Odd_Even") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x05_P2.54mm_Vertical")
+      (reference "U3") (unit 2) (value "Conn_03x05_GPA-FHDO") (footprint "3Row_Connector_PinHeader_2.54mm:PinHeader_3x05_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000e3998434"
       (reference "U5") (unit 1) (value "ADS8684A") (footprint "GPA_dortmund:TSSOP38_LONG_PINS")

@@ -1,5 +1,5 @@
 (sym_lib_table
-  (lib (name "GPA_dortmund-eagle-import")(type "Legacy")(uri "${KIPRJMOD}/GPA_dortmund-eagle-import.lib")(options "")(descr "")(disabled))
+  (lib (name "GPA_dortmund-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/GPA_dortmund-eagle-import.kicad_sym")(options "")(descr ""))
   (lib (name "GPA_dortmund-rescue")(type "Legacy")(uri "${KIPRJMOD}/GPA_dortmund-rescue.lib")(options "")(descr "")(disabled))
   (lib (name "3RowConnectors")(type "KiCad")(uri "${KIPRJMOD}/3RowConnectors.kicad_sym")(options "")(descr ""))
 )
