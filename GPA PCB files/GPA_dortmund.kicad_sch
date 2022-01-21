@@ -274,16 +274,16 @@
       (reference "C19") (unit 1) (value "100nF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000f44913ed"
-      (reference "C20") (unit 1) (value "22uF") (footprint "GPA_dortmund:CAPT6032N-L")
+      (reference "C20") (unit 1) (value "4,7uF/50V") (footprint "GPA_dortmund:CAPT6032N-L")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000a03cf4b5"
       (reference "C21") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000085440648"
-      (reference "C22") (unit 1) (value "22uF") (footprint "GPA_dortmund:CAPT6032N-L")
+      (reference "C22") (unit 1) (value "4,7uF/50V") (footprint "GPA_dortmund:CAPT6032N-L")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000b6b21953"
-      (reference "C23") (unit 1) (value "22uF") (footprint "GPA_dortmund:CAPT6032N-L")
+      (reference "C23") (unit 1) (value "22uF/10V") (footprint "GPA_dortmund:CAPT6032N-L")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00005a0a058d"
       (reference "C24") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
@@ -322,19 +322,19 @@
       (reference "C36") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000cf07b5f6"
-      (reference "C37") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C37") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-00005c8ef826"
-      (reference "C38") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C38") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000054f4ee1"
       (reference "C39") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000ee63e1ac"
-      (reference "C40") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C40") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000f03766ed"
-      (reference "C41") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C41") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9ea3/00000000-0000-0000-0000-0000cb16010a"
       (reference "C42") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
@@ -352,19 +352,19 @@
       (reference "C46") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000d660c55a"
-      (reference "C47") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C47") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00006574af54"
-      (reference "C48") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C48") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000f793aec4"
       (reference "C49") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-00009659a8ec"
-      (reference "C50") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C50") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000986d593f"
-      (reference "C51") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C51") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061ab9cef/00000000-0000-0000-0000-0000cf7df721"
       (reference "C52") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
@@ -382,19 +382,19 @@
       (reference "C66") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000cd6aee21"
-      (reference "C67") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C67") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000071326b9"
-      (reference "C68") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C68") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000d15bb6c1"
       (reference "C69") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000b1f40be7"
-      (reference "C70") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C70") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-0000e0e23889"
-      (reference "C71") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C71") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-00003bdceb75"
       (reference "C72") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
@@ -412,19 +412,19 @@
       (reference "C86") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000030049de3"
-      (reference "C87") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C87") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00008b9c5828"
-      (reference "C88") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C88") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-000095bd9754"
       (reference "C89") (unit 1) (value "1uF") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00006358782e"
-      (reference "C90") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C90") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000d5a18e50"
-      (reference "C91") (unit 1) (value "10uF") (footprint "GPA_dortmund:C0805")
+      (reference "C91") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder")
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00002e83de4f"
       (reference "C92") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")

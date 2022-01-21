@@ -1,4 +1,4 @@
 (fp_lib_table
-  (lib (name "GPA_dortmund")(type "KiCad")(uri "$(KIPRJMOD)/GPA_dortmund.pretty")(options "")(descr ""))
+  (lib (name "GPA_dortmund")(type "KiCad")(uri "${KIPRJMOD}/GPA_dortmund.pretty")(options "")(descr ""))
   (lib (name "3Row_Connector_PinHeader_2.54mm")(type "KiCad")(uri "${KIPRJMOD}/3Row_Connector_PinHeader_2.54mm.pretty")(options "")(descr ""))
 )

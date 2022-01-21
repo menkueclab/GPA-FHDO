@@ -1,6 +1,6 @@
 (footprint "PinHeader_3x05_P2.54mm_Vertical" (version 20211014) (generator pcbnew)
   (layer "F.Cu")
-  (tedit 61E1692B)
+  (tedit 61EA9C2B)
   (descr "Through hole straight pin header, 3x05, 2.54mm pitch, triple rows")
   (tags "Through hole pin header THT 3x05 2.54mm tripel row")
   (attr through_hole)
@@ -48,8 +48,13 @@
   (pad "13" thru_hole oval (at 0 10.16) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) (tstamp 71b55704-230a-41ef-8ef5-b191d4da46a8))
   (pad "14" thru_hole oval (at 2.54 10.16) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) (tstamp 90785223-6d97-4390-8591-b39e1571cb90))
   (pad "15" thru_hole oval (at 5.08 10.16) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) (tstamp 6e1c18b9-3fea-4204-afc6-38aaff3cd6af))
-  (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x04_P2.54mm_Vertical.wrl"
+  (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x05_P2.54mm_Vertical.wrl"
     (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
+  (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.wrl"
+    (offset (xyz 5 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
   )
