@@ -465,6 +465,9 @@
     (path "/00000000-0000-0000-0000-000061aba20b/4ddb00f8-ecc4-4737-b280-80154d5ee2e0"
       (reference "JP4") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
     )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/e9d35786-cb1d-4e62-bc31-4ac4c77726b1"
+      (reference "JP5") (unit 1) (value "SolderJumper_3_Open") (footprint "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm")
+    )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00007dc8c285"
       (reference "LED1") (unit 1) (value "LEDSMT1206") (footprint "GPA_dortmund:1206")
     )
@@ -662,9 +665,6 @@
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-0000a2ea2d44"
       (reference "R105") (unit 1) (value "200m 25W DPAK") (footprint "GPA_dortmund:PWR163_DPAK")
-    )
-    (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-00003e7d897a"
-      (reference "SV2") (unit 1) (value "MA03-1") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-000039d8666c"
       (reference "SV3") (unit 1) (value "ADC Probe Point") (footprint "GPA_dortmund:MA04-2")
