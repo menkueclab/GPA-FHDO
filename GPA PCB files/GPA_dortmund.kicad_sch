@@ -231,6 +231,12 @@
     (path "/00000000-0000-0000-0000-000061aba057/00000000-0000-0000-0000-000061c851e4"
       (reference "#PWR0147") (unit 1) (value "+12V") (footprint "")
     )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/d7068e86-6312-4342-aa63-c1b7ad68015f"
+      (reference "#PWR0148") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/3fdafad0-ea80-4ead-b61d-e77e480a5561"
+      (reference "#PWR0149") (unit 1) (value "+12V") (footprint "")
+    )
     (path "/00000000-0000-0000-0000-000061ab9a1e/c3701334-af7a-4b80-a2c8-056c9ed7668a"
       (reference "#PWR0150") (unit 1) (value "GND") (footprint "")
     )
@@ -263,6 +269,12 @@
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000e6471815"
       (reference "C10") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/865a9162-726f-4a41-97ff-300c179f138e"
+      (reference "C11") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/3b60d994-8a0c-45e4-ac60-1eb49ae51887"
+      (reference "C12") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
     )
     (path "/00000000-0000-0000-0000-000061ab9a1e/00000000-0000-0000-0000-0000ce46cd9a"
       (reference "C17") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
@@ -428,6 +440,18 @@
     )
     (path "/00000000-0000-0000-0000-000061aba20b/00000000-0000-0000-0000-00002e83de4f"
       (reference "C92") (unit 1) (value "C-EUC0805") (footprint "GPA_dortmund:C0805")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/f3120528-fc2d-4187-88d0-3446f8aede76"
+      (reference "FB1") (unit 1) (value "FerriteBead") (footprint "Inductor_SMD:L_0805_2012Metric_Pad1.15x1.40mm_HandSolder")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/b1853ee1-af2e-49ab-93e4-e29b2d9f793d"
+      (reference "FB2") (unit 1) (value "FerriteBead") (footprint "Inductor_SMD:L_0805_2012Metric_Pad1.15x1.40mm_HandSolder")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/3326710d-69e9-4099-a97d-86d21f9b321f"
+      (reference "J1") (unit 1) (value "pwr led") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
+    )
+    (path "/00000000-0000-0000-0000-000061ab9a1e/daa01ba7-0252-4b4d-82ff-d5eaf982b932"
+      (reference "J2") (unit 1) (value "fan") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-000061ab9cef/54c69e96-cd8e-4f77-9931-65cd10b5542a"
       (reference "JP1") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
