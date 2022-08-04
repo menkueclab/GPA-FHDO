@@ -1,0 +1,5 @@
+/* copied solution to override table width restrictions: https://github.com/readthedocs/sphinx_rtd_theme/issues/117#issuecomment-41506687 */
+/* https://stackoverflow.com/a/69373882 */
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: inherit !important;
+}

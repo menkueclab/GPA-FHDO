@@ -1,0 +1,5 @@
+/* copied solution to change max content width: https://stackoverflow.com/a/43186995 */
+.wy-nav-content {
+    max-width: 1200px !important;
+}
+
