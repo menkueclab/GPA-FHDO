@@ -4,7 +4,7 @@ This Gradient Power Amplifier (GPA) has 4 channels, of which each can drive a cu
 
 [Read more](https://github.com/menkueclab/GPA-FHDO/wiki) - git wiki
 
-[Read more](gpa-fhdo.rtfd.io) - ReadTheDocs 
+[Read more](https://gpa-fhdo.rtfd.io) - ReadTheDocs 
 [![Documentation Status](https://readthedocs.org/projects/gpa-fhdo/badge/?version=latest)](https://gpa-fhdo.readthedocs.io/en/latest/?badge=latest)
       
 
